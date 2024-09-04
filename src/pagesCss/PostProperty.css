@@ -1,0 +1,111 @@
+
+
+   h5 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-tabs .nav-link {
+    color: #444;
+    border: 1px solid transparent;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 0;
+  }
+  
+  .nav-tabs .nav-link.active {
+    color: #d9534f;
+    background-color: #fff;
+    border-color: #ddd;
+    border-bottom-color: transparent;
+  }
+  
+  /* Styling for the upload box content */
+  .photo-upload-box {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Orange text styling */
+  .photo-upload-box p {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ff7f00;
+  }
+  
+  /* Styling the button */
+  .photo-upload-box .btn-outline-danger {
+    color: #d9534f;
+    border-color: #d9534f;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+  
+  .photo-upload-box .btn-outline-danger:hover {
+    background-color: #d9534f;
+    color: #fff;
+  }
+  
+  /* Guidelines section */
+  .photo-guidelines p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .guideline-img {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .image-guidelines {
+    margin-top: 10px;
+  }
+  
+  .image-guidelines img {
+    margin-right: 10px;
+  }
+  
+  .image-guidelines img:last-child {
+    margin-right: 0;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .uploaded-image-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .delete-image-button {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .delete-image-button:hover {
+    background-color: red;
+  }
+  
