@@ -16,22 +16,23 @@ const HeroSection = () => {
     { title: 'Property 1' },
     { title: 'Property 2' },
     { title: 'Property 3' },
-    { title: 'Property 4' },
-    { title: 'Property 5' },
-    { title: 'Property 6' },
-    { title: 'Property 7' },
-    { title: 'Property 8' }
+    { title: 'Property 4' }
+    
   ]);
 
   const [commercialProperties, setCommercialProperties] = useState([
     { title: 'Commercial 1' },
     { title: 'Commercial 2' },
     { title: 'Commercial 3' },
-    { title: 'Commercial 4' },
-    { title: 'Commercial 5' },
-    { title: 'Commercial 6' },
-    { title: 'Commercial 7' },
-    { title: 'Commercial 8' }
+    { title: 'Commercial 4' }
+    
+  ]);
+  const [otherProperties, setOtherProperties] = useState([
+    { title: 'Other 1' },
+    { title: 'Other 2' },
+    { title: 'Other 3' },
+    { title: 'Other 4' }
+    
   ]);
 
   const demoImageUrl = 'https://via.placeholder.com/150x250';
@@ -289,7 +290,7 @@ const HeroSection = () => {
       <div className="others-section mt-5">
         <h2>Others Property:</h2>
         <div className="property-cards-row">
-          {commercialProperties.map((property, index) => (
+          {otherProperties.map((property, index) => (
             <div className="property-card" key={index}>
               <img src={demoImageUrl} alt={`Others Property ${index + 1}`} />
               <h3>{property.title}</h3>

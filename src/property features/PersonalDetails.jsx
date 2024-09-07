@@ -1,4 +1,5 @@
-import React from "react";
+// PersonalDetails.jsx
+import React from 'react';
 import { Form, Row, Col, Button } from "react-bootstrap";
 
 const PersonalDetails = ({ userType, setUserType }) => {
@@ -56,6 +57,7 @@ const PersonalDetails = ({ userType, setUserType }) => {
               </Col>
             </Row>
           </Form.Group>
+
           <Button variant="warning" className="mb-3 w-100 mt-2">
             <i className="bi bi-whatsapp"></i> Enter your WhatsApp No. to get enquiries from Buyer/Tenant
           </Button>

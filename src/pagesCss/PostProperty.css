@@ -109,3 +109,83 @@
     background-color: red;
   }
   
+  /* CSS to make the headings non-clickable and remove hover background */
+.dropdown-heading {
+  font-weight: bold;
+  background-color: #e5eaec;
+  color: #000;
+  pointer-events: none;
+}
+
+.dropdown-heading:hover {
+  background-color: #fff !important;
+}
+
+/* Tooltip styling for mobile */
+.tooltip-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 400px;
+  height: auto;
+  background-color: #fff;
+  border: 1px solid;
+  color: #000;
+  text-align: left;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  left: 600%;
+  bottom: -340%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-icon:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+select {
+  font-size: 15px !important;
+}
+
+
+@media (max-Width:768px){
+  .tooltip-text {
+    max-width: 170px;
+    height: auto;
+    font-size: 12px !important;
+  bottom: -420%;
+
+}
+.tooltip-icon {
+ 
+  margin-left: 15px;
+}
+
+/* Adjust dropdown width */
+.form-control {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Dropdown options */
+select {
+  font-size: 15px;
+}
+
+.dropdown-menu {
+  width: 100%;
+  max-width: 100%;
+  overflow-y: auto; /* Add scroll if the dropdown is too long */
+  max-height: 300px; /* Control max height */
+}
+}
