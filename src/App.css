@@ -1,9 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
-::-webkit-scrollbar{
-  width: 0px;
+body {
+  font-family: 'poppins', sans-serif;
+  font-weight: normal;
+  font-size:smaller;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+}
+
+.footer h5 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  color: #333;
+}
+
+.footer ul {
+  padding: 0;
+}
+
+.footer ul li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+/* Update this to display items inline */
+.network-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Optional: To add spacing between items */
+}
+
+.network-list li {
+  margin: 0 15px; /* Optional: To adjust horizontal spacing */
+}
+
+.footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.read-more, .read-less {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.read-more:hover, .read-less:hover {
+  text-decoration: underline;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.social-icons a {
+  margin-right: 5px !important; /* Add space between icons */
+  margin-left: 3.6rem !important;
+}
+
+.social-icons a:last-child {
+  margin-right: 0px !important; /* Remove right margin from the last icon */
 }

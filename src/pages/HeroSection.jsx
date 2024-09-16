@@ -261,9 +261,9 @@ const HeroSection = () => {
       </div>
       
     </div>
-     <div className='mt-4'>
+     <div className='mt-4' style={{margin:'20px'}}>
       {/* Residential Properties */}
-      <div className="residential-section">
+      <div className="residential-section" >
         <h2>Residential Property:</h2>
         <div className="property-cards-row">
           {residentialProperties.map((property, index) => (

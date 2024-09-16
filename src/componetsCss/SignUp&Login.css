@@ -1,0 +1,175 @@
+.signup-page {
+  background-image: url('/images/haikai.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden; /* Ensure smooth transitions */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120vh; /* Full viewport height */
+}
+
+.info-section {
+  width:465px;
+  background-color: rgb(77, 32, 32);
+  padding: 40px;
+  color: white;
+  border-top-right-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.info-section.hidden {
+  transform: translateX(-93%); /* Slide out, showing 10% */
+  opacity: 1; /* Keep opacity 1 so content is visible */
+}
+
+.form-section {
+  transition: margin-left 0.5s ease; /* Smooth transition for margin */
+  background-color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #F0F0F0;
+  box-shadow: 0px 0px 1px 1px rgb(224, 224, 224); 
+  border-radius: 10px;
+  position: relative;
+  width: 100%; /* Adjust width according to sidebar */
+  height: auto;
+  max-width: 450px; /* Ensure it does not grow too large */
+  max-height: 600px;
+  margin-left: 650px; /* Initial position with sidebar visible */
+}
+
+.form-section.centered {
+  margin-left: 10%; /* Adjust margin to account for visible part of sidebar */
+  width: 100%; /* Adjust width accordingly */
+  max-width: 450px; /* Ensure it does not grow too large */
+  height: auto;
+  max-height: 600px;
+}
+
+.form-control {
+  border: 1px solid #CACACA !important;
+  width: 100% !important;
+  outline: none;
+}
+
+.toggle-button-container {
+  position: absolute;
+  left: 0; /* Align the button with the visible part of the sidebar */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.toggle-button {
+  
+  color: #fff;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  z-index: 3;
+  font-size: 32px;
+}
+
+.toggle-button:hover {
+  color: #fff !important;
+}
+
+.country-list {
+  outline: none;
+  width: 190px !important;
+  max-height: 146px !important;
+}
+
+
+.form-group {
+  position: relative;
+  margin-top: 20px;
+}
+
+.floating-group .form-control {
+  width: 100%;
+  padding: 12px 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.floating-label {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 4px;
+  font-size: 16px;
+  color: #999;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.form-control:focus + .floating-label,
+.form-control:not(:placeholder-shown) + .floating-label {
+  top: 0;
+  left: 8px;
+  font-size: 12px;
+  color: #333;
+}
+
+
+/* Existing styles remain unchanged */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .form-section {
+    margin-left: 0; /* Remove margin on smaller screens */
+    width: 90%; /* Full width on tablets */
+  }
+
+  .form-section.centered {
+    margin-left: 0; /* Center when sidebar is hidden */
+    width: 90%; /* Full width on tablets */
+  }
+
+  .info-section {
+    width: 100%; /* Full width on tablets */
+    height: auto; /* Adjust height for smaller screens */
+    position: static; /* Change positioning for tablets */
+    transform: none; /* No transform needed for tablets */
+  }
+}
+
+/* Mobile View - Hide info-section */
+@media (max-width: 768px) {
+  .form-section {
+    width: 100%; /* Full width on mobile */
+    margin-left: 0; /* Center the form */
+  }
+
+  .form-section.centered {
+    width: 100%; /* Full width when centered */
+  }
+
+  .info-section {
+    display: none; /* Hide the left column on mobile */
+  }
+
+  .toggle-button-container {
+    display: none; /* Hide toggle button on mobile */
+  }
+  .signup-page{
+    width: 100%;
+    height: 75vh;
+  }
+}

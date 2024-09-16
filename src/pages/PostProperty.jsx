@@ -631,7 +631,15 @@ const PostProperty = () => {
         </div>
       </div>
       <div className="mt-3">
-        <label className="form-label">Pantry/Cafeteria</label>
+        <label className="form-label">Pantry/Cafeteria
+        <span className="tooltip-icon"> 
+      <i className="fas fa-question-circle"></i>
+      <span className="tooltip-text">
+        Dry Pantry - Area for light cooking. Eg: Snacks, Tea, Coffee etc. <br />
+        Wet Pantry - Area for regular cooking & dishwashing.
+      </span>
+    </span>
+        </label>
         <div className="form-check">
           <input
             className="form-check-input"
@@ -750,7 +758,15 @@ const PostProperty = () => {
         </div>
       </div>
       <div className="mt-3">
-        <label className="form-label">Pantry/Cafeteria</label>
+        <label className="form-label">Pantry/Cafeteria
+        <span className="tooltip-icon"> 
+      <i className="fas fa-question-circle"></i>
+      <span className="tooltip-text">
+        Dry Pantry - Area for light cooking. Eg: Snacks, Tea, Coffee etc. <br />
+        Wet Pantry - Area for regular cooking & dishwashing.
+      </span>
+    </span>
+        </label>
         <div className="form-check">
           <input
             className="form-check-input"
@@ -1555,7 +1571,7 @@ const PostProperty = () => {
       <Row>
         {/* Left Side - Form */}
         <Col xs={12} md={8} className="mb-4">
-          <h2>Sell or Rent your Property</h2>
+          <h2 >Sell or Rent your Property</h2>
           <p>
             You are posting this property for{" "}
             <span style={{ color: "orange" }}>FREE!</span>
@@ -1564,7 +1580,7 @@ const PostProperty = () => {
           <Form>
             {/* Personal Details */}
 
-            <h5>Personal Details</h5>
+            <h5 >Personal Details</h5>
             <Form.Group controlId="userType">
               <Form.Label>I am</Form.Label>
               <div>
@@ -1633,7 +1649,7 @@ const PostProperty = () => {
               </>
             )}
             {/* Property Details */}
-            <h5 className="mt-3">Property Details</h5>
+            <h5 className="mt-3 ">Property Details</h5>
             <Form.Group controlId="for">
               <Form.Label>For</Form.Label>
               <div>
@@ -1745,8 +1761,28 @@ const PostProperty = () => {
                 </Col>
                 <Col xs={3}>
                   <Form.Control as="select">
-                    <option>Sq.ft</option>
-                    {/* Add other units if needed */}
+                    <option>Sq-ft</option>
+                    <option>Sq-yard</option>
+                    <option>Sq-m</option>
+                    <option>Acre</option>
+                    <option>Bigha</option>
+                    <option>Hectare</option>
+                    <option>Marla</option>
+                    <option>Kanal</option>
+                    <option>Biswa1</option>
+                    <option>Biswa2</option>
+                    <option>Ground</option>
+                    <option>Aankadam</option>
+                    <option>Rood</option>
+                    <option>Chatak</option>
+                    <option>Kottah</option>
+                    <option>Marla</option>
+                   <option >Cent</option>
+                   <option >Perch</option>
+                   <option >Guntha</option>
+                   <option >Are</option>
+                  
+            
                   </Form.Control>
                 </Col>
               </Row>

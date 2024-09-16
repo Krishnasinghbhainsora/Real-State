@@ -12,9 +12,9 @@ const Header = () => {
         </div>
        
         <nav className="nav">
-          <Link to="/login" className="nav-link">Login</Link>
-          <Link to="/signup" className="nav-link">Sign Up</Link>
-          <Link to="/post-property" className="nav-link">Post Property </Link>
+          <Link to="/login" className="nav-link" style={{color:'#000'}}>Login</Link>
+          <Link to="/signup" className="nav-link" style={{color:'#000'}}>Sign Up</Link>
+          <Link to="/post-property" className="nav-link " style={{backgroundColor:'#FCCA36', borderRadius:'20px', color:'#000' }}>Post Property </Link>
 
 
         </nav>

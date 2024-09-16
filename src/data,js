@@ -1,4 +1,0 @@
-export const bedroomOptions = [1, 2, 3, 4, "5+"];
-export const bathroomOptions = [1, 2, 3, 4, "5+"];
-export const balconyOptions = [1, 2, 3];
-export const furnishedOptions = ["Furnished", "Semi-Furnished", "Unfurnished"];

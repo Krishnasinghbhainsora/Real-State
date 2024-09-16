@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'; 
+
 
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -17,6 +19,10 @@ import FiltersPlot from './filters/FiltersPlot';
 import FiltersPG from './filters/FiltersPG';
 import FiltersCommercial from './filters/FiltersCommercial';
 import PostProperty from './pages/PostProperty';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import PropertyDetails from './propertypage/PropertyDetails';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -29,6 +35,9 @@ const App = () => {
             {/* <Filters/> */}
           </>
         }/>
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/login' element={<Login/>}/>
+
         <Route path="/buy" element={<Buy/>} />
 
         <Route path="/rent" element={<RentPage />} />
@@ -45,10 +54,12 @@ const App = () => {
         <Route path="/pg/filters" element={<FiltersPG/>}/>
         <Route path="/commercial/filters" element={<FiltersCommercial/>}/>
         <Route path="/post-property" element={<PostProperty/>}/>
+        <Route path="/property-details" element={<PropertyDetails/>}/>
         
 
 
       </Routes>
+      <Footer/>
 
      
     </>

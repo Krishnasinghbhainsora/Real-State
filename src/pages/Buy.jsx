@@ -10,6 +10,32 @@ const Buy = () => {
   const [showPropertyDropdown, setShowPropertyDropdown] = useState(false);
   const [showBudgetDropdown, setShowBudgetDropdown] = useState(false);
 
+  const [residentialProperties, setResidentialProperties] = useState([
+    { title: 'Property 1' },
+    { title: 'Property 2' },
+    { title: 'Property 3' },
+    { title: 'Property 4' }
+    
+  ]);
+
+  const [commercialProperties, setCommercialProperties] = useState([
+    { title: 'Rent 1' },
+    { title: 'Rent 2' },
+    { title: 'Rent 3' },
+    { title: 'Rent 4' }
+    
+  ]);
+  const [otherProperties, setOtherProperties] = useState([
+    { title: 'Other 1' },
+    { title: 'Other 2' },
+    { title: 'Other 3' },
+    { title: 'Other 4' }
+    
+  ]);
+
+  const demoImageUrl = 'https://via.placeholder.com/150x250';
+
+
   const propertyDropdownRef = useRef(null);
   const budgetDropdownRef = useRef(null);
 
@@ -57,6 +83,7 @@ const Buy = () => {
   }, []);
 
   return (
+    <section>
     <div className="hero-section" style={{ 
       backgroundImage: "url('/images/p3.jpg')", // Replace with your Just Sold page background image URL
       backgroundSize: 'cover',
@@ -217,6 +244,47 @@ const Buy = () => {
         </Form>
       </div>
     </div>
+
+
+    <div className='mt-4' style={{margin:'20px'}}>
+      {/* Residential Properties */}
+      <div className="residential-section">
+        <h2>Newest property:</h2>
+        <div className="property-cards-row">
+          {residentialProperties.map((property, index) => (
+            <div className="property-card" key={index}>
+              <img src={demoImageUrl} alt={`Residential Property ${index + 1}`} />
+              <h3>{property.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Commercial Properties */}
+      <div className="commercial-section mt-5">
+        <h2>Rental with rent specials:</h2>
+        <div className="property-cards-row">
+          {commercialProperties.map((property, index) => (
+            <div className="property-card" key={index}>
+              <img src={demoImageUrl} alt={`Commercial Property ${index + 1}`} />
+              <h3>{property.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="others-section mt-5">
+        <h2>Single family home for rent:</h2>
+        <div className="property-cards-row">
+          {otherProperties.map((property, index) => (
+            <div className="property-card" key={index}>
+              <img src={demoImageUrl} alt={`Others Property ${index + 1}`} />
+              <h3>{property.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>       
+    </section>
   );
 };
 
