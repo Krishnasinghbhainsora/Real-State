@@ -87,10 +87,10 @@ const PostProperty = () => {
   const propertyTypeFeatures = {
     "Flat/Apartment": (
       <>
-        <h5 className="mt-3">Property Features</h5>
+        <h6 className="mt-3 fw-bold">Property Features</h6>
         <Form.Group controlId="bedrooms">
           <Form.Label>Bedrooms</Form.Label>
-          <Form.Control as="select">
+          <Form.Control as="select" >
             <option>Select Bedrooms</option>
            {badrooms.map((option,index)=>(
             <option key={index}>{option}</option>
@@ -99,7 +99,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="balconies">
-      <Form.Label>Balconies</Form.Label>
+      <Form.Label className="mt-2">Balconies</Form.Label>
       <Form.Control as="select">
         <option>Select Balconies</option>
         {balconies.map((option, index) => (
@@ -109,7 +109,7 @@ const PostProperty = () => {
    
     </Form.Group>
     <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>( 
@@ -117,9 +117,9 @@ const PostProperty = () => {
            ))}
           </Form.Control>
         </Form.Group>
-
-        <Form.Group controlId="floors">
-          <Form.Label>Floors</Form.Label>
+       
+        <Form.Group controlId="floors" >
+          <Form.Label className="mt-2" >Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -127,7 +127,7 @@ const PostProperty = () => {
            ))}
           </Form.Control>
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -137,7 +137,7 @@ const PostProperty = () => {
       </Form.Group>
         </Form.Group>
         <Form.Group controlId="bathrooms">
-          <Form.Label>Bathrooms</Form.Label>
+          <Form.Label className="mt-2">Bathrooms</Form.Label>
           <Form.Control as="select">
             <option>Select Bathrooms</option>
            {bathrooms.map((option,index)=>(
@@ -154,7 +154,7 @@ const PostProperty = () => {
       <>
         <h5 className="mt-3">Property Features</h5>
         <Form.Group controlId="bedrooms">
-          <Form.Label>Bedrooms</Form.Label>
+          <Form.Label className="mt-2">Bedrooms</Form.Label>
           <Form.Control as="select">
             <option>Select Bedrooms</option>
            {badrooms.map((option,index)=>(
@@ -164,7 +164,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="balconies">
-      <Form.Label>Balconies</Form.Label>
+      <Form.Label className="mt-2">Balconies</Form.Label>
       <Form.Control as="select">
         <option>Select Balconies</option>
         {balconies.map((option, index) => (
@@ -174,7 +174,7 @@ const PostProperty = () => {
    
     </Form.Group>
     <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>(
@@ -184,7 +184,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -202,9 +202,9 @@ const PostProperty = () => {
     ),
     "Villa": (
       <>
-        <h5 className="mt-3">Property Features</h5>
+        <h6 className="mt-3 fw-bold">Property Features</h6>
         <Form.Group controlId="bedrooms">
-          <Form.Label>Bedrooms</Form.Label>
+          <Form.Label >Bedrooms</Form.Label>
           <Form.Control as="select">
             <option>Select Bedrooms</option>
            {badrooms.map((option,index)=>(
@@ -214,7 +214,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="balconies">
-      <Form.Label>Balconies</Form.Label>
+      <Form.Label className="mt-2">Balconies</Form.Label>
       <Form.Control as="select">
         <option>Select Balconies</option>
         {balconies.map((option, index) => (
@@ -224,7 +224,7 @@ const PostProperty = () => {
    
     </Form.Group>
     <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>(
@@ -235,7 +235,7 @@ const PostProperty = () => {
         
 
         <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -253,7 +253,7 @@ const PostProperty = () => {
     ),
     "Builder Floor Apartment":(
     <>
-      <h5 className="mt-3">Property Features</h5>
+      <h6 className="mt-3 fw-bold">Property Features</h6>
       <Form.Group controlId="bedrooms">
           <Form.Label>Bedrooms</Form.Label>
           <Form.Control as="select">
@@ -265,7 +265,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="balconies">
-      <Form.Label>Balconies</Form.Label>
+      <Form.Label className="mt-2">Balconies</Form.Label>
       <Form.Control as="select">
         <option>Select Balconies</option>
         {balconies.map((option, index) => (
@@ -275,7 +275,7 @@ const PostProperty = () => {
    
     </Form.Group>
     <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>(
@@ -285,7 +285,7 @@ const PostProperty = () => {
         </Form.Group>
        
         <Form.Group controlId="bathrooms">
-          <Form.Label>Bathrooms</Form.Label>
+          <Form.Label className="mt-2">Bathrooms</Form.Label>
           <Form.Control as="select">
             <option>Select Bathrooms</option>
            {bathrooms.map((option,index)=>(
@@ -296,7 +296,7 @@ const PostProperty = () => {
 
 
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -306,7 +306,7 @@ const PostProperty = () => {
       </Form.Group>
 
       <Form.Group controlId="floors">
-          <Form.Label>Floors</Form.Label>
+          <Form.Label className="mt-2">Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -318,9 +318,9 @@ const PostProperty = () => {
     ),
     "Residential Land/Plot":(
       <>
-      <h5 className="mt-3">Property Features</h5>
+      <h6 className="mt-3 fw-bold">Property Features</h6>
       <Form.Group controlId="totalfloorNo">
-        <Form.Label>Floor Allowed for construction</Form.Label>
+        <Form.Label className="mt-2">Floor Allowed for construction</Form.Label>
         <Form.Control as="select">
           <option>Total Floor</option>
           {totalFloors.map((option,index)=>(
@@ -330,7 +330,7 @@ const PostProperty = () => {
       </Form.Group>
 
       <Form.Group controlId="bathrooms">
-        <Form.Label>No. of open sides</Form.Label>
+        <Form.Label className="mt-2">No. of open sides</Form.Label>
         <Form.Control as="select">
           <option>Select</option>
           <option>1</option>
@@ -343,7 +343,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
        <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -453,9 +453,9 @@ const PostProperty = () => {
     ),
     "Penthouse": (
       <>
-      <h5 className="mt-3">Property Features</h5>
+      <h6 className="mt-3 fw-bold">Property Features</h6>
         <Form.Group controlId="bedrooms">
-          <Form.Label>Bedrooms</Form.Label>
+          <Form.Label >Bedrooms</Form.Label>
           <Form.Control as="select">
             <option>Select Bedrooms</option>
            {badrooms.map((option,index)=>(
@@ -465,7 +465,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="balconies">
-      <Form.Label>Balconies</Form.Label>
+      <Form.Label className="mt-2">Balconies</Form.Label>
       <Form.Control as="select">
         <option>Select Balconies</option>
         {balconies.map((option, index) => (
@@ -475,7 +475,7 @@ const PostProperty = () => {
    
     </Form.Group>
     <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>(
@@ -485,7 +485,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="floors">
-          <Form.Label>Floors</Form.Label>
+          <Form.Label className="mt-2">Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -495,7 +495,7 @@ const PostProperty = () => {
         </Form.Group>  
         
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -507,7 +507,7 @@ const PostProperty = () => {
     ),
     "Studio Apartment":(
       <>
-      <h5 className="mt-3">Property Features</h5>
+      <h6 className="mt-3 fw-bold">Property Features</h6>
       <Form.Group controlId="bedrooms">
           <Form.Label>Bedrooms</Form.Label>
           <Form.Control as="select">
@@ -519,7 +519,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="balconies">
-      <Form.Label>Balconies</Form.Label>
+      <Form.Label className="mt-2">Balconies</Form.Label>
       <Form.Control as="select">
         <option>Select Balconies</option>
         {balconies.map((option, index) => (
@@ -529,7 +529,7 @@ const PostProperty = () => {
    
     </Form.Group>
     <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>(
@@ -539,7 +539,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="bathrooms">
-          <Form.Label>Floors</Form.Label>
+          <Form.Label className="mt-2">Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -549,7 +549,7 @@ const PostProperty = () => {
         </Form.Group>  
         
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -561,9 +561,9 @@ const PostProperty = () => {
     ), 
     "Commercial Office Space" : (
       <>
-      <h5 className="mt-3">Property Features</h5>
+      <h6 className="mt-3 fw-bold">Property Features</h6>
       <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>(
@@ -573,7 +573,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="floors">
-          <Form.Label>Floors</Form.Label>
+          <Form.Label  className="mt-2">Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -583,7 +583,7 @@ const PostProperty = () => {
         </Form.Group>  
         
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -592,7 +592,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
       <Form.Group controlId="bathrooms">
-          <Form.Label>Washrooms</Form.Label>
+          <Form.Label className="mt-2">Washrooms</Form.Label>
           <Form.Control as="select">
             <option>Select</option>
            {bathrooms.map((option,index)=>(
@@ -688,7 +688,7 @@ const PostProperty = () => {
     ),
     "Office in IT Park/SEZ":(
       <>
-      <h5 className="mt-3">Property Features</h5>
+      <h6 className="mt-3 fw-bold">Property Features</h6>
       <Form.Group controlId="Furnished Status">
           <Form.Label>Furnished Status</Form.Label>
           <Form.Control as="select">
@@ -700,7 +700,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="floors">
-          <Form.Label>Floors</Form.Label>
+          <Form.Label className="mt-2">Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -710,7 +710,7 @@ const PostProperty = () => {
         </Form.Group>  
         
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -719,7 +719,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
       <Form.Group controlId="bathrooms">
-          <Form.Label>Washrooms</Form.Label>
+          <Form.Label className="mt-2">Washrooms</Form.Label>
           <Form.Control as="select">
             <option>Select</option>
            {bathrooms.map((option,index)=>(
@@ -761,7 +761,7 @@ const PostProperty = () => {
         <label className="form-label">Pantry/Cafeteria
         <span className="tooltip-icon"> 
       <i className="fas fa-question-circle"></i>
-      <span className="tooltip-text">
+      <span className="tooltip-text" >
         Dry Pantry - Area for light cooking. Eg: Snacks, Tea, Coffee etc. <br />
         Wet Pantry - Area for regular cooking & dishwashing.
       </span>
@@ -812,9 +812,9 @@ const PostProperty = () => {
     ),
     "Commercial Shop":(
       <>
-      <h5 className="mt-3">Property Features</h5>
+      <h6 className="mt-3 fw-bold">Property Features</h6>
       <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label >Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>(
@@ -824,7 +824,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="floors">
-          <Form.Label>Floors</Form.Label>
+          <Form.Label className="mt-2">Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -834,7 +834,7 @@ const PostProperty = () => {
         </Form.Group>  
         
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -843,7 +843,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
       <Form.Group controlId="bathrooms">
-          <Form.Label>Washrooms</Form.Label>
+          <Form.Label className="mt-2">Washrooms</Form.Label>
           <Form.Control as="select">
             <option>Select</option>
            {bathrooms.map((option,index)=>(
@@ -1012,7 +1012,7 @@ const PostProperty = () => {
         </Form.Group>
 
         <Form.Group controlId="floors">
-          <Form.Label>Floors</Form.Label>
+          <Form.Label className="mt-2">Floors</Form.Label>
           <Form.Control as="select">
             <option>Select Floors</option>
            {floors.map((option,index)=>(
@@ -1022,7 +1022,7 @@ const PostProperty = () => {
         </Form.Group>  
         
         <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -1031,7 +1031,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
       <Form.Group controlId="bathrooms">
-          <Form.Label>Washrooms</Form.Label>
+          <Form.Label className="mt-2">Washrooms</Form.Label>
           <Form.Control as="select">
             <option>Select</option>
            {bathrooms.map((option,index)=>(
@@ -1200,7 +1200,7 @@ const PostProperty = () => {
       </Form.Group>
 
       <Form.Group controlId="bathrooms">
-        <Form.Label>No. of open sides</Form.Label>
+        <Form.Label className="mt-2">No. of open sides</Form.Label>
         <Form.Control as="select">
           <option>Select</option>
           <option>1</option>
@@ -1213,7 +1213,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
        <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -1277,7 +1277,7 @@ const PostProperty = () => {
       </Form.Group>
 
       <Form.Group controlId="bathrooms">
-        <Form.Label>No. of open sides</Form.Label>
+        <Form.Label className="mt-2">No. of open sides</Form.Label>
         <Form.Control as="select">
           <option>Select</option>
           <option>1</option>
@@ -1290,7 +1290,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
        <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -1386,7 +1386,7 @@ const PostProperty = () => {
       <>
       <h5 className="mt-3">Property Features</h5>
       <Form.Group controlId="totalfloorNo">
-        <Form.Label>Floor Allowed for construction</Form.Label>
+        <Form.Label className="mt-2">Floor Allowed for construction</Form.Label>
         <Form.Control as="select">
           <option>Total Floor</option>
           {totalFloors.map((option,index)=>(
@@ -1396,7 +1396,7 @@ const PostProperty = () => {
       </Form.Group>
 
       <Form.Group controlId="sides">
-        <Form.Label>No. of open sides</Form.Label>
+        <Form.Label className="mt-2">No. of open sides</Form.Label>
         <Form.Control as="select">
           <option>Select</option>
           <option>1</option>
@@ -1409,7 +1409,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
        <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -1438,7 +1438,7 @@ const PostProperty = () => {
           </Form.Control>
         </Form.Group>
        <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -1488,7 +1488,7 @@ const PostProperty = () => {
       <>
       <h5 className="mt-3">Property Features</h5>
       <Form.Group controlId="bedrooms">
-          <Form.Label>Bedrooms</Form.Label>
+          <Form.Label className="mt-2">Bedrooms</Form.Label>
           <Form.Control as="select">
             <option>Select Bedrooms</option>
            {badrooms.map((option,index)=>(
@@ -1499,7 +1499,7 @@ const PostProperty = () => {
    
     
     <Form.Group controlId="Furnished Status">
-          <Form.Label>Furnished Status</Form.Label>
+          <Form.Label className="mt-2">Furnished Status</Form.Label>
           <Form.Control as="select">
             <option>Select </option>
            {furnished.map((option,index)=>( 
@@ -1510,7 +1510,7 @@ const PostProperty = () => {
 
 
       <Form.Group controlId="totalfloorNo">
-        <Form.Label>Total Floor No.</Form.Label>
+        <Form.Label className="mt-2">Total Floor No.</Form.Label>
         <Form.Control as="select">
           <option>Select Floor No.</option>
           {totalFloors.map((option,index)=>(
@@ -1522,7 +1522,7 @@ const PostProperty = () => {
 
 
         <Form.Group controlId="bathrooms">
-          <Form.Label>Bathrooms</Form.Label>
+          <Form.Label className="mt-2">Bathrooms</Form.Label>
           <Form.Control as="select">
             <option>Select Bathrooms</option>
            {bathrooms.map((option,index)=>(
@@ -1531,7 +1531,7 @@ const PostProperty = () => {
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="sides">
-        <Form.Label>No. of open sides</Form.Label>
+        <Form.Label className="mt-2">No. of open sides</Form.Label>
         <Form.Control as="select">
           <option>Select</option>
           <option>1</option>
@@ -1544,7 +1544,7 @@ const PostProperty = () => {
         </Form.Control>
       </Form.Group>
        <Form.Group controlId="gardenArea">
-          <Form.Label>Width of road facing the plot</Form.Label>
+          <Form.Label className="mt-2">Width of road facing the plot</Form.Label>
           <Row>
             <Col xs={9}>
               <Form.Control type="text" placeholder=" Road Width" />
@@ -1580,7 +1580,7 @@ const PostProperty = () => {
           <Form>
             {/* Personal Details */}
 
-            <h5 >Personal Details</h5>
+            <h6 className="fw-bold">Personal Details</h6>
             <Form.Group controlId="userType">
               <Form.Label>I am</Form.Label>
               <div>
@@ -1637,8 +1637,8 @@ const PostProperty = () => {
                     </Col>
                   </Row>
                 </Form.Group>
-                <Button variant="warning" className="mb-3 w-100 mt-2">
-                  <i className="bi bi-whatsapp"></i> Enter your WhatsApp No. to
+                <Button variant="warning" className=" w-100 mt-2" style={{fontSize:'13px'}}>
+                  <i className="bi bi-whatsapp" ></i> Enter your WhatsApp No. to
                   get enquiries from Buyer/Tenant
                 </Button>
 
@@ -1649,7 +1649,7 @@ const PostProperty = () => {
               </>
             )}
             {/* Property Details */}
-            <h5 className="mt-3 ">Property Details</h5>
+            <h6 className="mt-3 fw-bold">Property Details</h6>
             <Form.Group controlId="for">
               <Form.Label>For</Form.Label>
               <div>
@@ -1681,8 +1681,9 @@ const PostProperty = () => {
 {/* Property Features - Conditionally Rendered */}
 <Form.Group controlId="propertyType">
   <Form.Label className="mt-2">Property Type</Form.Label>
-  <Form.Control as="select" onChange={handlePropertyTypeChange}>
-    <option>Select Property Type</option>
+  
+  <Form.Control as="select" onChange={handlePropertyTypeChange} className="custom-select-dropdown">
+    <option >Select Property Type</option>
 
     {/* Non-clickable heading for ALL RESIDENTIAL */}
     <option className="dropdown-heading" disabled>ALL RESIDENTIAL</option>
@@ -1713,7 +1714,7 @@ const PostProperty = () => {
 
             
             {/* Property Location */}
-            <h5 className="mt-3">Property Location</h5>
+            <h6 className="mt-3 fw-bold">Property Location</h6>
             <Form.Group controlId="city">
               <Form.Label>City</Form.Label>
               <Form.Control type="text" placeholder="Enter City" />
@@ -1728,11 +1729,11 @@ const PostProperty = () => {
               <Form.Label className="mt-2">Land Zone</Form.Label>
               <span className="tooltip-icon"> 
       <i className="fas fa-question-circle"></i>
-      <span className="tooltip-text " style={{fontSize:'15px', left:'120px'}}>
+      <span className="tooltip-text " style={{fontSize:'12.5px', left:'110px'}}>
         Classification of land on the basis of its use like Residential, Commercial, Industrial, Mixed Use Zone & more. To know your land zone refer the Master Plan/Development Plan of your city. 
       </span>
     </span>
-              <Form.Control as="select" >
+              <Form.Control as="select"  >
                 <option>Select Land Zone</option>
                 <option>Industrial</option>
                 <option>Commercial</option>
@@ -1752,12 +1753,12 @@ const PostProperty = () => {
            {propertyType && propertyTypeFeatures[propertyType]}
 
             {/* Area */}
-            <h5 className="mt-3">Area</h5>
+            <h6 className="mt-3 fw-bold">Area</h6>
             <Form.Group controlId="superArea">
-              <Form.Label>Super Area</Form.Label>
+              <Form.Label>Covered Area</Form.Label>
               <Row>
                 <Col xs={9}>
-                  <Form.Control type="text" placeholder="Super Area" />
+                  <Form.Control type="text" placeholder="Covered Area" />
                 </Col>
                 <Col xs={3}>
                   <Form.Control as="select">
@@ -1788,15 +1789,46 @@ const PostProperty = () => {
               </Row>
             </Form.Group>
 
-            <Form.Group controlId="plotArea">
-              <Form.Check className="mt-1" type="checkbox" label="Plot Area" />
+            <Form.Group controlId="superArea " className="mt-2">
+              <Form.Label >Plot Area</Form.Label>
+              <Row>
+                <Col xs={9}>
+                  <Form.Control type="text" placeholder="Plot Area" />
+                </Col>
+                <Col xs={3}>
+                  <Form.Control as="select">
+                    <option>Sq-ft</option>
+                    <option>Sq-yard</option>
+                    <option>Sq-m</option>
+                    <option>Acre</option>
+                    <option>Bigha</option>
+                    <option>Hectare</option>
+                    <option>Marla</option>
+                    <option>Kanal</option>
+                    <option>Biswa1</option>
+                    <option>Biswa2</option>
+                    <option>Ground</option>
+                    <option>Aankadam</option>
+                    <option>Rood</option>
+                    <option>Chatak</option>
+                    <option>Kottah</option>
+                    <option>Marla</option>
+                   <option >Cent</option>
+                   <option >Perch</option>
+                   <option >Guntha</option>
+                   <option >Are</option>
+                  
+            
+                  </Form.Control>
+                </Col>
+              </Row>
             </Form.Group>
 
             {/* Transaction Type, Property Availability */}
-            <h5 className="mt-3">Transaction Type, Property Availability</h5>
+            <h6 className="mt-3 fw-bold">Transaction Type, Property Availability</h6>
             <Form.Group controlId="possessionStatus">
-              <Form.Label>Possession Status</Form.Label>
-              <div>
+              <div className="mt-3">
+              <Form.Label className="me-3">Possession Status</Form.Label>
                 <Form.Check
                   inline
                   type="radio"
@@ -1853,7 +1885,7 @@ const PostProperty = () => {
             </Form.Group>
 
             {/* Price Details */}
-            <h5 className="mt-3">Price Details</h5>
+            <h6 className="mt-3 fw-bold">Price Details</h6>
             <Form.Group controlId="totalPrice">
               <Form.Label>Total Price</Form.Label>
               <Form.Control type="text" placeholder="Enter Total Price" />
@@ -1872,7 +1904,7 @@ const PostProperty = () => {
             </Form.Group>
 
             {/* Photos Section */}
-            <h5 className="mt-3">Photos</h5>
+            <h6 className="mt-3 fw-bold">Photos</h6>
             <p>It's Optional! But, don't forget to upload them later.</p>
             <Tab.Container activeKey={activeTab} onSelect={handleSelect}>
               <Nav variant="tabs" className="mb-2">
@@ -2104,7 +2136,7 @@ const PostProperty = () => {
         {/* Right Side - Advertisement */}
         <Col xs={12} md={4}>
           <div className="p-3 border">
-            <h5>Advertise</h5>
+            <h6 className="fw-bold">Advertise</h6>
             <ul>
               <li>Respond to Buyer Enquiries</li>
               <li>Connect with Matching Buyers</li>

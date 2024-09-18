@@ -34,7 +34,7 @@
   .nav-link {
     text-decoration: none;
     color: #444;
-    font-weight: bold;
+    font-weight: 600;
   }
   
   .nav-link:hover {

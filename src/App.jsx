@@ -23,6 +23,7 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import PropertyDetails from './propertypage/PropertyDetails';
 import Footer from './components/Footer';
+import UserLayout from './components/UserLayout';
 
 const App = () => {
   return (
@@ -55,6 +56,9 @@ const App = () => {
         <Route path="/commercial/filters" element={<FiltersCommercial/>}/>
         <Route path="/post-property" element={<PostProperty/>}/>
         <Route path="/property-details" element={<PropertyDetails/>}/>
+        <Route path="/user-layout" element={<UserLayout/>}/>
+
+
         
 
 

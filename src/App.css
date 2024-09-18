@@ -1,17 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 
 body {
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
   font-weight: normal;
-  font-size:smaller;
+  font-size: smaller;
 }
 
 .footer {
@@ -41,7 +39,7 @@ body {
 .network-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Optional: To add spacing between items */
+  
 }
 
 .network-list li {
@@ -57,13 +55,15 @@ body {
   text-decoration: underline;
 }
 
-.read-more, .read-less {
+.read-more,
+.read-less {
   color: #007bff;
   cursor: pointer;
   font-weight: bold;
 }
 
-.read-more:hover, .read-less:hover {
+.read-more:hover,
+.read-less:hover {
   text-decoration: underline;
 }
 

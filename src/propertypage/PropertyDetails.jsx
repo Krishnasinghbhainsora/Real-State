@@ -105,12 +105,12 @@ const PropertyDetails = () => {
       </div>
 
       {/* Property Info Section */}
-      <div className="property-info">
-        <h2>
+      <div className="property-info ">
+        <h4>
           ₹{propertyData.price} | {propertyData.bhk} Builder Floor in{" "}
           {propertyData.location}
-        </h2>
-        <div className="property-features" style={{ marginTop:'15px', fontSize:'14px', color:'#777'}}>
+        </h4>
+        <div className="property-features" style={{ marginTop:'15px', fontSize:'13px', color:'#777'}}>
           <span className="fw-bold">{propertyData.beds} Beds</span>
           <span className="fw-bold">{propertyData.baths} Baths</span>
           <span className="fw-bold">{propertyData.carpetArea} sqft</span>
@@ -208,9 +208,9 @@ const PropertyDetails = () => {
         {/* More Details Section */}
         <div className="more-details">
   <div className="more-details-container">
-    <h3 >More Details:</h3>
+    <h5 >More Details:</h5>
 
-    <div className="detail-item">
+    <div className="detail-item pt-3">
       <strong>Price Breakup:</strong> ₹{propertyData.price}
     </div>
 

@@ -150,12 +150,12 @@ const HeroSection = () => {
                     Residential <FaAngleDown />
                   </Dropdown.Header>
                   {expandedCategory === 'Residential' && (
-                    <div className="horizontal-menu" ref={submenuRef}>
+                    <div className="horizontal-menu" style={{fontSize:'15px'}} ref={submenuRef}>
                       <Dropdown.Item onClick={() => handlePropertySelect('Flat')} className={selectedPropertyTypes.includes('Flat') ? 'selected-item' : ''}>
                         Flat  
                       </Dropdown.Item>
                       {selectedPropertyTypes.includes('Flat') && (
-                        <div className="horizontal-submenu">
+                        <div className="horizontal-submenu" style={{fontSize:'12px'}} >
                           <Dropdown.Item onClick={() => handleSubcategorySelect('Flat', '1 BHK')} className={selectedSubcategory.Flat === '1 BHK' ? 'selected-item' : ''}>
                             1 BHK
                           </Dropdown.Item>
@@ -165,6 +165,9 @@ const HeroSection = () => {
                           <Dropdown.Item onClick={() => handleSubcategorySelect('Flat', '3 BHK')} className={selectedSubcategory.Flat === '3 BHK' ? 'selected-item' : ''}>
                             3 BHK
                           </Dropdown.Item>
+                          <Dropdown.Item onClick={() => handleSubcategorySelect('Flat', '4 BHK')} className={selectedSubcategory.Flat === '4 BHK' ? 'selected-item' : ''}>
+                            4 BHK
+                          </Dropdown.Item>
                           
                         </div>
                       )}
@@ -172,7 +175,7 @@ const HeroSection = () => {
                         House/Villa
                       </Dropdown.Item>
                       {selectedPropertyTypes.includes('House/Villa') && (
-                        <div className="horizontal-submenu">
+                        <div className="horizontal-submenu" style={{fontSize:'12px'}} >
                           <Dropdown.Item onClick={() => handleSubcategorySelect('House/Villa', '1 BHK')} className={selectedSubcategory['House/Villa'] === '1 BHK' ? 'selected-item' : ''}>
                             1 BHK
                           </Dropdown.Item>
@@ -182,13 +185,17 @@ const HeroSection = () => {
                           <Dropdown.Item onClick={() => handleSubcategorySelect('House/Villa', '3 BHK')} className={selectedSubcategory['House/Villa'] === '3 BHK' ? 'selected-item' : ''}>
                             3 BHK
                           </Dropdown.Item>
+                          <Dropdown.Item onClick={() => handleSubcategorySelect('House/Villa', '4 BHK')} className={selectedSubcategory['House/Villa'] === '4 BHK' ? 'selected-item' : ''}>
+                            4 BHK
+                          </Dropdown.Item>
+                          
                         </div>
                       )}
                       <Dropdown.Item onClick={() => handlePropertySelect('Plot')} className={selectedPropertyTypes.includes('Plot') ? 'selected-item' : ''}>
                         Plot
                       </Dropdown.Item>
                       {selectedPropertyTypes.includes('Plot') && (
-                        <div className="horizontal-submenu">
+                        <div className="horizontal-submenu" style={{fontSize:'12px'}} >
                           <Dropdown.Item onClick={() => handleSubcategorySelect('Plot', '500 sqft')} className={selectedSubcategory.Plot === '500 sqft' ? 'selected-item' : ''}>
                             500 sqft
                           </Dropdown.Item>
@@ -203,12 +210,12 @@ const HeroSection = () => {
                     </div>
                   )}
                 </div>
-                <div className="property-item">
+                <div className="property-item " style={{fontSize:'15px'}} >
                   <Dropdown.Header onClick={() => handleCategoryClick('Commercial')}>
                     Commercial <FaAngleDown />
                   </Dropdown.Header>
                   {expandedCategory === 'Commercial' && (
-                    <div className="horizontal-submenu">
+                    <div className="horizontal-submenu" style={{fontSize:'12px'}} >
                       <Dropdown.Item onClick={() => handlePropertySelect('Office Space')} className={selectedPropertyTypes.includes('Office Space') ? 'selected-item' : ''}>
                         Office Space
                       </Dropdown.Item>
@@ -218,12 +225,12 @@ const HeroSection = () => {
                     </div>
                   )}
                 </div>
-                <div className="property-item">
+                <div className="property-item" style={{fontSize:'15px'}} >
                   <Dropdown.Header onClick={() => handleCategoryClick('Others')}>
                     Others <FaAngleDown />
                   </Dropdown.Header>
                   {expandedCategory === 'Others' && (
-                    <div className="horizontal-submenu">
+                    <div className="horizontal-submenu" style={{fontSize:'12px'}} >
                       <Dropdown.Item onClick={() => handlePropertySelect('Farmhouse')} className={selectedPropertyTypes.includes('Farmhouse') ? 'selected-item' : ''}>
                         Farmhouse
                       </Dropdown.Item>

@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import { PropertyTypeFeatures } from "./PropertyTypeFeatures"; // Import the data
 
-const PropertyDetails = ({ propertyType, handlePropertyTypeChange }) => (
+const PropertyDetail = ({ propertyType, handlePropertyTypeChange }) => (
   <>
     <h5 className="mt-3">Property Details</h5>
     <h5 className="mt-3">Property Details</h5>
@@ -73,4 +73,4 @@ const PropertyDetails = ({ propertyType, handlePropertyTypeChange }) => (
   </>
 );
 
-export default PropertyDetails;
+export default PropertyDetail;

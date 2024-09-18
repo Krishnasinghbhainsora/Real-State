@@ -114,8 +114,8 @@
 }
 
 .custom-dropdown .dropdown-menu-custom {
-  max-height: 320px ;
-  width: 420px !important;
+  /* max-height: 320px ; */
+  /* width: 420px !important; */
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -141,7 +141,7 @@
   display: flex;
   gap: 10px;
   padding: 10px 0;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   border-radius: 5px;
 }
 
