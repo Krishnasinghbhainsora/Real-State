@@ -24,6 +24,7 @@ import Login from './components/Login';
 import PropertyDetails from './propertypage/PropertyDetails';
 import Footer from './components/Footer';
 import UserLayout from './components/UserLayout';
+import ManageProperties from './pages/ManageProperties';
 
 const App = () => {
   return (
@@ -57,6 +58,8 @@ const App = () => {
         <Route path="/post-property" element={<PostProperty/>}/>
         <Route path="/property-details" element={<PropertyDetails/>}/>
         <Route path="/user-layout" element={<UserLayout/>}/>
+        <Route path="/manage-property" element={<ManageProperties/>}/>
+
 
 
         

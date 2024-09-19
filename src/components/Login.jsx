@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';  
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { Link } from 'react-router-dom';
-import '../componetsCss/SignUp&Login.css';  // For the floating label CSS
+import '../componetsCss/SignUp&Login.css'; 
 
 const Login = () => {
-  const [mobileNo, setMobileNo] = useState('');
-  const [otp, setOtp] = useState('');
-  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [mobileOrEmail, setMobileOrEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isPasswordVisible, setPasswordVisible] = useState(false);  // State to toggle password visibility
   const [isLeftContentVisible, setLeftContentVisible] = useState(true);
   const [userType, setUserType] = useState('buyer');
 
@@ -15,58 +16,30 @@ const Login = () => {
     setLeftContentVisible(!isLeftContentVisible);
   };
 
-  const handleMobileChange = (e) => {
-    setMobileNo(e.target.value);
+  const handleMobileOrEmailChange = (e) => {
+    setMobileOrEmail(e.target.value);
   };
 
-  const handleOtpChange = (e) => {
-    setOtp(e.target.value);
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
-  const handleSendOtp = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    if (userType === 'agent' || userType === 'builder') {
-      if (mobileNo.trim() === '') {
-        alert('Please enter a valid Email ID or Mobile No.');
-        return;
-      }
-    } else {
-      if (mobileNo.length !== 10) {
-        alert('Please enter a valid 10-digit mobile number.');
-        return;
-      }
-    }
-
-    console.log('Sending OTP to:', mobileNo);
-    setIsOtpSent(true);
-  };
-
-  const handleVerifyOtp = (e) => {
-    e.preventDefault();
-
-    if (otp.length !== 4) {
-      alert('Please enter a valid 4-digit OTP.');
+    if (!mobileOrEmail.trim() || !password.trim()) {
+      alert('Please enter both Mobile/Email and Password.');
       return;
     }
 
-    console.log('Verifying OTP:', otp);
-    // Add OTP verification logic
+    console.log('Logging in with:', mobileOrEmail, password, 'as', userType);
+    // Add logic to authenticate user based on mobile/email and password
   };
 
   const handleGoogleLoginSuccess = (response) => {
     console.log('Google login success', response);
-    // Send the Google token to your backend server for verification and to create or log in the user
     const { credential } = response;
-    // Here you can send the credential to your server
-    // Example:
-    // axios.post('/api/auth/google', { idToken: credential })
-    //   .then(response => {
-    //     // Handle successful login/signup
-    //   })
-    //   .catch(error => {
-    //     // Handle error
-    //   });
+    // Send the Google token to your backend server for verification
   };
 
   const handleGoogleLoginFailure = (error) => {
@@ -74,8 +47,14 @@ const Login = () => {
     alert('Google login failed. Please try again.');
   };
 
+  // Toggle password visibility
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!isPasswordVisible);
+  };
+
   return (
     <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
+      <section>
       <div className="container-fluid signup-page">
         <div className={`info-section ${isLeftContentVisible ? '' : 'hidden'}`}>
           <h3 className="pb-5 text-white">Things you Can Do with Your Account</h3>
@@ -122,66 +101,54 @@ const Login = () => {
             />
           </div>
 
-          <Form onSubmit={isOtpSent ? handleVerifyOtp : handleSendOtp}>
-            {!isOtpSent && (
-              <>
-                <div className="form-group floating-group ">
-                  <Form.Control
-                    type="text"
-                    name="mobileNo"
-                    value={mobileNo}
-                    onChange={handleMobileChange}
-                    placeholder=" "
-                    maxLength={userType === 'agent' ? undefined : '10'}
-                    className="form-control mb-3"
-                    required
-                  />
-                  <label className="floating-label">
-                    {userType === 'agent' ? 'Enter Email ID or Mobile No.' : 'Enter Mobile No.'}
-                  </label>
-                </div>
-                <Button variant="danger " type="submit" block style={{ width: '100%' }}>
-                  Next
-                </Button>
-              </>
-            )}
+          <Form onSubmit={handleLogin}>
+            <div className="form-group floating-group">
+              <Form.Control
+                type="text"
+                name="mobileOrEmail"
+                value={mobileOrEmail}
+                onChange={handleMobileOrEmailChange}
+                placeholder=" "
+                className="form-control mb-3"
+                required
+              />
+              <label className="floating-label">Enter Mobile No. or Email</label>
+            </div>
 
-            {isOtpSent && (
-              <>
-                <div className="form-group floating-group">
-                  <Form.Control
-                    type="text"
-                    name="otp"
-                    value={otp}
-                    onChange={handleOtpChange}
-                    placeholder=" "
-                    maxLength="4"
-                    className="form-control mb-2"
-                    required
-                  />
-                  <label className="floating-label">Enter 4-digit OTP</label>
-                </div>
-                <Button variant="danger" type="submit" block style={{ width: '100%' }}>
-                  Verify OTP
-                </Button>
-              </>
-            )}
+            {/* Password Input with Show/Hide Button */}
+            <div className="form-group floating-group password-group">
+              <Form.Control
+                type={isPasswordVisible ? 'text' : 'password'}  // Toggle between text and password types
+                name="password"
+                value={password}
+                onChange={handlePasswordChange}
+                placeholder=" "
+                className="form-control mb-3"
+                required
+              />
+              <label className="floating-label">Enter Password</label>
+
+              {/* Show/Hide Password Icon */}
+              <span className="password-toggle-icon" onClick={togglePasswordVisibility}>
+                {isPasswordVisible ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+
+            <Button variant="danger" type="submit" block style={{ width: '100%' }}>
+              Login
+            </Button>
           </Form>
 
-          {!isOtpSent && (
-            <div className="text-center pt-3">
-              <small>Or login using</small>
-            </div>
-          )}
+          <div className="text-center pt-3">
+            <small>Or login using</small>
+          </div>
 
-          {!isOtpSent && (
-            <div className="text-center mt-3">
-              <GoogleLogin
-                onSuccess={handleGoogleLoginSuccess}
-                onError={handleGoogleLoginFailure}
-              />
-            </div>
-          )}
+          <div className="text-center mt-3">
+            <GoogleLogin
+              onSuccess={handleGoogleLoginSuccess}
+              onError={handleGoogleLoginFailure}
+            />
+          </div>
 
           <div className="already-registered pt-3 text-center">
             <p>
@@ -190,6 +157,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      </section>
     </GoogleOAuthProvider>
   );
 };

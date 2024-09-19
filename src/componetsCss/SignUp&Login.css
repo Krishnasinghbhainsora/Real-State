@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   height: 120vh; /* Full viewport height */
+  padding: 0;
 }
 
 .info-section {
@@ -126,6 +127,18 @@
   font-size: 12px;
   color: #333;
 }
+.password-group {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
 
 
 /* Existing styles remain unchanged */
@@ -133,8 +146,9 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .form-section {
-    margin-left: 0; /* Remove margin on smaller screens */
+    margin-left: 100px; /* Remove margin on smaller screens */
     width: 90%; /* Full width on tablets */
+    margin-right: 10px !important;
   }
 
   .form-section.centered {
@@ -144,7 +158,6 @@
 
   .info-section {
     width: 100%; /* Full width on tablets */
-    height: auto; /* Adjust height for smaller screens */
     position: static; /* Change positioning for tablets */
     transform: none; /* No transform needed for tablets */
   }
@@ -155,6 +168,7 @@
   .form-section {
     width: 100%; /* Full width on mobile */
     margin-left: 0; /* Center the form */
+    padding: 20px;
   }
 
   .form-section.centered {
