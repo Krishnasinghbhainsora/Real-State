@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 
-const PropertyTypeFeatures = ({ propertyType }) => {
+const PropertyTypeFeatures = ({ propertyType ,formData}) => {
   const badrooms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ">10"];
   const balconies = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ">10"];
   const furnished = ["Furnished", "unfurnished", "Semi-Furnished"];

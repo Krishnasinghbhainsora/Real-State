@@ -158,8 +158,6 @@ const Login = () => {
         </div>
       </div>
       </section>
-    </GoogleOAuthProvider>
-  );
-};
-
-export default Login;
+      </GoogleOAuthProvider>
+  )}
+export default Login

@@ -1,7 +1,27 @@
-import React from 'react';
-import { Form } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Form,
+  Row,
+  Col,
+  Button,
+  Modal,
+  Tab,
+  Nav,
+} from "react-bootstrap";
+import "../pagesCss/PostProperty.css";
+
+const badrooms = [1,2,3,4,5,6,7,8,9,10, ">10"]
+const balconies = [0, 1, 2, 3,4,5,6,7,8,9,10,">10"];
+const furnished = ["Furnished", "unfurnished", "Semi-Furnished"]
+const bathrooms = [1,2,3,4,5,6,7,8,9,10,">10"];
+const floors = ["Lower Basement", "Upper Basement", "Ground", 1,2,3,4,5,6,7,8,9,10, ">10" ];
+const totalFloors = [1,2,3,4,5,6,7,8,9,10,">10"];
+
+
 
 const propertyTypeFeatures = {
+
+
   "Flat/Apartment": (
     <>
       <h5 className="mt-3">Property Features</h5>
@@ -9,7 +29,7 @@ const propertyTypeFeatures = {
         <Form.Label>Bedrooms</Form.Label>
         <Form.Control as="select">
           <option>Select Bedrooms</option>
-         {badrooms.map((option,index)=>(
+         {badrooms?.map((option,index)=>(
           <option key={index}>{option}</option>
          ))}
         </Form.Control>

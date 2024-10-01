@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import { Routes, Route } from 'react-router-dom';
@@ -48,8 +49,6 @@ const App = () => {
         <Route path="/plot" element={<Plot/>} />
         <Route path="/commercial" element={<Commercial/>} />
         <Route path="/filters" element={<Filters/>} />
-        
-
         <Route path="/rent/filters" element={<FiltersRent/>}/>
         <Route path="/buy/filters" element={<FiltersBuy/>}/>
         <Route path="/plot/filters" element={<FiltersPlot/>}/>
