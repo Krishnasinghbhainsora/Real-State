@@ -3,8 +3,8 @@
   .hero-section {
     background-image: url('/images/p1.jpg'); 
     background-size: cover;
-    background-position: center;
-    height: 80vh;
+    background-position: center 40%;
+    height: 78vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -29,9 +29,9 @@
     text-align: center;
     color: #fff;
     width: 100%;
-    max-width: 1000px; /* Set a maximum width for the content */
+    max-width: 1000px; 
     padding: 0 20px;
-    margin: 0 auto; /* Center the content */
+    margin: 0 auto; 
   }
   .nav-links {
     display: flex;
@@ -83,7 +83,7 @@
   h1 {
     margin-bottom: 20px;
     font-size: 2.5rem;
-    max-width: 100%; /* Ensure the heading doesn't affect the width of the search form */
+    max-width: 100%; 
   }
 
 .search-form {
@@ -99,18 +99,23 @@
   border: none;
 }
 
+.form-control {
+  border: none;
+  width: 100% !important;
+  outline: none;
+}
+
 .custom-dropdown {
   position: relative;
   display: inline-block;
-  width: 180px; /* Set a fixed width for the dropdown */
-  /* text-align: center; */
+  width: 180px; 
 }
 
 .custom-dropdown .dropdown-toggle {
-  width: 100%; /* Make the toggle button fill the width of the dropdown */
-  text-align: left; /* Align text to the left */
-  overflow: hidden; /* Hide overflow text */
-  text-overflow:ellipsis; /* Add ellipsis for overflowed text */
+  width: 100%; 
+  text-align: left; 
+  overflow: hidden; 
+  text-overflow:ellipsis; 
 }
 
 .custom-dropdown .dropdown-menu-custom {
@@ -139,15 +144,22 @@
 
 .horizontal-submenu {
   display: flex;
-  gap: 10px;
   padding: 10px 0;
   /* background-color: #f1f1f1; */
   border-radius: 5px;
 }
 
 .selected-item {
-  background-color: #007bff;
-  color: #fff;
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.covered-area-inputs {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between; /* Ensure both dropdowns are on the same row with space between */
+  gap: 10px; /* Optional: Adjust the gap between dropdowns if needed */
+  margin-top: -30px !important; /* Add some margin for visual clarity */
 }
 
 .dropdown-arrow-icon {
@@ -197,12 +209,7 @@
   object-fit: cover;
 }
 
-.property-card h3 {
-  font-size: 1.2rem ;
-  /* font-weight: 500; */
-  text-align: center;
-  margin: 10px 0;
-}
+
 
 .property-card:hover {
   transform: translateY(-5px);
@@ -211,6 +218,9 @@
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
+    .hero-section{
+      height: 70vh !important;
+    }
     .search-form {
       flex-direction: column;
       max-width: 100%;
@@ -229,6 +239,75 @@
       width: 100%;
       border-radius: 5px;
     }
+    .content h1{
+      font-size: 28px !important;
+      font-weight: 600 !important;
+
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px !important;
+      margin-bottom: 20px !important;
+  
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 17px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 20px 8px;
+      transition: color 0.3s;
+    }
+  
+
+    .property-cards-row {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      /* scroll-snap-type: x mandatory; */
+      /* -webkit-overflow-scrolling: touch; */
+    }
+  
+    .property-card {
+      flex: 0 0 90%; 
+      /* scroll-snap-align: start; */
+    }
+  
+    /* Optional: Hide scrollbars */
+    .property-cards-row::-webkit-scrollbar {
+      display: none;
+    }
+    
+   .residential-section  h3, .commercial-section h3, .others-section h3 {
+      font-size: 18px;
+    }
+    .nav-links a::before {
+       bottom: 8px !important;
+    }
+  
 
   }
+  @media (min-width: 768px) and (max-width:1024px){
+    .hero-section{
+      height: 40vh !important;
+    }
   
+  }
+  
+  @media (max-width:345px){
+    .content h1{
+      font-size: 25px !important;
+      font-weight: 500 !important;
+
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 0px !important;
+      margin-bottom: 20px !important;
+  
+    }
+   
+  }

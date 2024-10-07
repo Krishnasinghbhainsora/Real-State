@@ -25,15 +25,22 @@ import PropertyDetails from './propertypage/PropertyDetails';
 import Footer from './components/Footer';
 import UserLayout from './components/UserLayout';
 import ManageProperties from './pages/ManageProperties';
+import RequestProperty from './pages/RequestProperty';
+import MyProfile from './components/MyProfile';
+import PropertyCard from './propertysection/PropertyCard';
+import Properties from './propertysection/Properties';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   return (
     <>
       <Header />
+      <ScrollToTop/>
       <Routes>
         <Route path='/' element={
           <>
             <HeroSection />
+
             {/* <Filters/> */}
           </>
         }/>
@@ -44,7 +51,7 @@ const App = () => {
 
         <Route path="/rent" element={<RentPage />} />
         <Route path="/sell" element={<SellPage />} />
-        <Route path="/pg" element={<Pg/>} />
+        {/* <Route path="/pg" element={<Pg/>} /> */}
         <Route path="/plot" element={<Plot/>} />
         <Route path="/commercial" element={<Commercial/>} />
         <Route path="/filters" element={<Filters/>} />
@@ -59,18 +66,26 @@ const App = () => {
         <Route path="/property-details" element={<PropertyDetails/>}/>
         <Route path="/user-layout" element={<UserLayout/>}/>
         <Route path="/manage-property" element={<ManageProperties/>}/>
+        <Route path="/request-property" element={<RequestProperty/>}/>
+        <Route path="/profile" element={<MyProfile/>}/>
+        <Route path="/properties/:id" element={<Properties/>}/>
+        {/* <Route path="/properties/:id" element={<PropertyDetails/>}/> */}
+       
+
+
+      </Routes>
+      <Footer/>
+     
+    </>
+  );
+};
+
+export default App; 
+
 
 
 
         
 
 
-      </Routes>
-      <Footer/>
 
-     
-    </>
-  );
-};
-
-export default App;

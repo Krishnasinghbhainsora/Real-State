@@ -1,65 +1,59 @@
-// import React from 'react';
-// import { Dropdown, Button } from 'react-bootstrap';
-// import '../componetsCss/SignUp&Login.css';  // Ensure you have the CSS file
-
-// const UserLayout = () => {
-//   const isLoggedIn = true; // Static logged-in state
-//   const userName = 'Praveen'; // Static user name
-
-//   return (
-//     <div className="container-fluid d-flex justify-content-between align-items-center">
-//       {isLoggedIn ? (
-//         <Dropdown>
-//           <Dropdown.Toggle variant="outline-light" id="dropdown-basic">
-//             Hi, {userName}
-//           </Dropdown.Toggle>
-
-//           <Dropdown.Menu>
-//             <Dropdown.Item href="/requested-properties">Requested Properties</Dropdown.Item>
-//             <Dropdown.Item href="/manage-properties">Manage Properties</Dropdown.Item>
-//             <Dropdown.Item href="/profile">My Profile</Dropdown.Item>
-//             <Dropdown.Item href="/sign-out">Sign Out</Dropdown.Item>
-//           </Dropdown.Menu>
-//         </Dropdown>
-//       ) : (
-//         <Button variant="outline-light" href="/login">
-//           Login
-//         </Button>
-//       )}
-
-     
-//     </div>
-//   );
-// };
-
-// export default UserLayout;
-
-
-// UserLayout.jsx
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../componetsCss/UserLayout.css"; // Ensure this file contains styles for the dropdown
+import "../componetsCss/UserLayout.css"; // Assuming you will style accordingly
 
 const UserLayout = () => {
-  const username = "Krishna"; // Demo name, you can later replace it with dynamic data
+  const user = {
+    name: "Krishna", 
+    isLoggedIn: true, 
+  };
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  // Get the first letter of the user's name
+  const getUserInitial = (name) => {
+    return name.charAt(0).toUpperCase();
+  };
+
+  // Close the dropdown
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
 
   return (
     <div className="user-layout">
-      <div className="user-info">
-        <span className="user-icon">K</span> {/* This can be replaced with the user's image or initial */}
-        <span className="user-name">Hi, {username}</span>
-        <span className="dropdown-arrow"></span> {/* Icon to indicate dropdown */}
-      </div>
+      {user.isLoggedIn && (
+        <div className="user-info" onClick={toggleDropdown}>
+          <span className="user-icon">{getUserInitial(user.name)}</span>
+          <span className="user-name">Hi, {user.name.split(" ")[0]}</span>
+          <span className={`dropdwn-arrow ${dropdownOpen ? "open" : ""}`}></span>
+        </div>
+      )}
 
-      <div className="user-dropdown">
-      <Link to="/profile" className="dropdown-item">Requested Properties</Link>
-      <Link to="/profile" className="dropdown-item">Manage Properties</Link>
-
-
-        <Link to="/profile" className="dropdown-item">My Profile</Link>
-        <Link to="/help" className="dropdown-item">Help</Link>
-        <Link to="/logout" className="dropdown-item">Sign Out</Link>
-      </div>
+      {/* Dropdown menu */}
+      {dropdownOpen && (
+        <div className="user-dropdwn">
+          <Link to="/requested-properties" className="dropdwn-item" onClick={closeDropdown}>
+            Requested Properties
+          </Link>
+          <Link to="/manage-property" className="dropdwn-item" onClick={closeDropdown}>
+            Manage Properties
+          </Link>
+          <Link to="/profile" className="dropdwn-item" onClick={closeDropdown}>
+            My Profile
+          </Link>
+          <Link to="/help" className="dropdwn-item" onClick={closeDropdown}>
+            Help
+          </Link>
+          <Link to="/logout" className="dropdwn-item" onClick={closeDropdown}>
+            Sign Out
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

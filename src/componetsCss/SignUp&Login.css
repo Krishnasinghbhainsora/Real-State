@@ -139,51 +139,86 @@
   cursor: pointer;
 }
 
+.benefits-list {
+  list-style: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.benefits-list li {
+  display: flex; /* Align check mark and text */
+  align-items: center; /* Center vertically */
+}
 
 
 /* Existing styles remain unchanged */
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .form-section {
-    margin-left: 100px; /* Remove margin on smaller screens */
-    width: 90%; /* Full width on tablets */
-    margin-right: 10px !important;
-  }
 
-  .form-section.centered {
-    margin-left: 0; /* Center when sidebar is hidden */
-    width: 90%; /* Full width on tablets */
+
+@media (max-width: 1024px) {
+  .signup-page {
+    flex-direction: column;
+    justify-content: flex-start;
+    height:auto;
+    /* margin:0  30px 0; */
+    background-image: none;
   }
 
   .info-section {
-    width: 100%; /* Full width on tablets */
-    position: static; /* Change positioning for tablets */
-    transform: none; /* No transform needed for tablets */
+    position: relative;
+    height: auto;
+    width: 100%;
+  }
+
+  .form-section {
+    max-width: 100%;
+    margin: 20px auto;
+    margin-left: 0;
+    padding: 30px;
+  }
+  .info-section {
+    display: none;
+  }
+  .toggle-button {
+  
+    display: none;
+  }
+  .signup-container{
+    margin: 0 !important;
+  }
+  .left-column{
+    width: 100% !important;
+  }
+
+
+}
+
+
+
+@media (max-width: 576px) {
+  .form-section {
+    padding: 20px;
+    height:auto
+  }
+
+  .info-section {
+    display: none;
+  }
+  .toggle-button {
+  
+    display: none;
+  }
+  .signup-container{
+    margin: 0 !important;
+  }
+  .checkboxText{
+    font-size: 12px !important;
   }
 }
 
-/* Mobile View - Hide info-section */
-@media (max-width: 768px) {
-  .form-section {
-    width: 100%; /* Full width on mobile */
-    margin-left: 0; /* Center the form */
-    padding: 20px;
+@media (max-width: 320px) {
+  .checkboxText{
+    font-size: 11px !important;
   }
 
-  .form-section.centered {
-    width: 100%; /* Full width when centered */
-  }
-
-  .info-section {
-    display: none; /* Hide the left column on mobile */
-  }
-
-  .toggle-button-container {
-    display: none; /* Hide toggle button on mobile */
-  }
-  .signup-page{
-    width: 100%;
-    height: 75vh;
-  }
 }

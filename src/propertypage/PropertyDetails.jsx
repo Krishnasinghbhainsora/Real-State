@@ -76,6 +76,15 @@ const PropertyDetails = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Submit form logic here
+    const userInfo = {
+      name: e.target.formName.value,
+      email: e.target.formEmail.value,
+      phone: e.target.formWhatsApp.value,
+      property: propertyData,  // Pass the property details here
+  };
+  const existingRequests = JSON.parse(localStorage.getItem('requests')) || [];
+    localStorage.setItem('requests', JSON.stringify([...existingRequests, userInfo]));
+
     setShowFormModal(false); // Close form after submission
   };
 

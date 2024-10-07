@@ -13,6 +13,8 @@ const Filters = () => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [priceRange, setPriceRange] = useState([20, 80]);
+  const [minValue, setMinValue] = useState('');
+const [maxValue, setMaxValue] = useState('');
 
   const cityList = ['New Delhi', 'Mumbai', 'Bangalore', 'Chennai', 'Kolkata', 'Pune', 'Hyderabad'];
   const propertyTypes = [
@@ -74,6 +76,13 @@ const Filters = () => {
     setSelectedBHKs(prevBHKs =>
       prevBHKs.includes(bhk) ? prevBHKs.filter(b => b !== bhk) : [...prevBHKs, bhk]
     );
+  };
+  const handleMinSelect = (eventKey) => {
+    setMinValue(eventKey);
+  };
+  
+  const handleMaxSelect = (eventKey) => {
+    setMaxValue(eventKey);
   };
 
   const activeRoute = location.pathname.split('/')[1];
@@ -215,13 +224,61 @@ const Filters = () => {
           </div>
         </div>
       ) : selectedPropertyTypes.includes('Plot/Land') ? (
-        <div className="covered-area">
-          <h6>Covered Area (sqft)</h6>
-          <div className="covered-area-inputs">
-            <input type="number" placeholder="Min" min="100" max="25000" />
-            <input type="number" placeholder="Max" min="100" max="50000" />
-          </div>
-        </div>
+        <div className="covered-area ">
+  <h6 style={{marginBottom:'40px'}}>Covered Area (sqft)</h6>
+  <div className="covered-area-inputs d-flex " style={{justifyContent:"space-between"}}>
+    <div className="min-input d-flex">
+      <Dropdown onSelect={handleMinSelect}>
+        <Dropdown.Toggle variant="light" className="budget-dropdown">
+          Min {minValue ? `${minValue}` : 'Select'}
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item eventKey="100">100</Dropdown.Item>
+          <Dropdown.Item eventKey="200">200</Dropdown.Item>
+          <Dropdown.Item eventKey="300">300</Dropdown.Item>
+          <Dropdown.Item eventKey="500">500</Dropdown.Item>
+          <Dropdown.Item eventKey="1000">1,000</Dropdown.Item>
+          <Dropdown.Item eventKey="1500">1,500</Dropdown.Item>
+          <Dropdown.Item eventKey="2000">2,000</Dropdown.Item>
+          <Dropdown.Item eventKey="2500">2,500</Dropdown.Item>
+          <Dropdown.Item eventKey="3000">3,000</Dropdown.Item>
+          <Dropdown.Item eventKey="4000">4,000</Dropdown.Item>
+          <Dropdown.Item eventKey="5000">5,000</Dropdown.Item>
+          <Dropdown.Item eventKey="10000">10,000</Dropdown.Item>
+          <Dropdown.Item eventKey="25000">25,000</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+    <div className="max-input">
+      <Dropdown onSelect={handleMaxSelect}>
+        <Dropdown.Toggle variant="light" className="budget-dropdown ">
+          Max {maxValue ? `${maxValue}` : 'Select'}
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item eventKey="100">100</Dropdown.Item>
+          <Dropdown.Item eventKey="200">200</Dropdown.Item>
+          <Dropdown.Item eventKey="300">300</Dropdown.Item>
+          <Dropdown.Item eventKey="500">500</Dropdown.Item>
+          <Dropdown.Item eventKey="1000">1,000</Dropdown.Item>
+          <Dropdown.Item eventKey="1500">1,500</Dropdown.Item>
+          <Dropdown.Item eventKey="2000">2,000</Dropdown.Item>
+          <Dropdown.Item eventKey="2500">2,500</Dropdown.Item>
+          <Dropdown.Item eventKey="3000">3,000</Dropdown.Item>
+          <Dropdown.Item eventKey="4000">4,000</Dropdown.Item>
+          <Dropdown.Item eventKey="5000">5,000</Dropdown.Item>
+          <Dropdown.Item eventKey="10000">10,000</Dropdown.Item>
+          <Dropdown.Item eventKey="20000">20,000</Dropdown.Item>
+          <Dropdown.Item eventKey="25000">25,000</Dropdown.Item>
+          <Dropdown.Item eventKey="30000">30,000</Dropdown.Item>
+          <Dropdown.Item eventKey="35000">35,000</Dropdown.Item>
+          <Dropdown.Item eventKey="40000">40,000</Dropdown.Item>
+          <Dropdown.Item eventKey="45000">45,000</Dropdown.Item>
+          <Dropdown.Item eventKey="50000">50,000</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+  </div>
+</div>
       ) : null}
 
       {/* Add More City/Localities Modal */}

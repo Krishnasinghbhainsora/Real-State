@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BsGooglePlay, BsApple } from 'react-icons/bs';
+import {Link} from 'react-router-dom'
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
@@ -16,13 +17,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer mt-5 py-5 bg-light ">
-      <div className="container">
+    <footer className="footer mt-5 bg-light ">
+      <div className="container ">
         <div className="row">
-          {/* Column 1: About Magicbricks + More from Our Network */}
+          {/* Column 1: About Zwolfrealty + More from Our Network */}
           <div className="col-md-6">
             <h6 className='fw-bold' style={{fontSize:'14px'}}>About Zwolf Realty</h6>
-            <p style={{fontSize:'13px'}}>
+            <p style={{fontSize:'13px', textAlign:"justify"}}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quasi placeat modi veritatis reprehenderit totam doloribus fuga explicabo doloremque zwolf by&nbsp;
               {isReadMoreAbout ? (
                 <>
@@ -37,9 +38,9 @@ const Footer = () => {
             <h6 className='fw-bold' style={{fontSize:'14px'}}>More from our Network</h6>
             <ul className="network-list" style={{fontSize:'13px', gap:'0'}}>
               <li>Times of India</li>
-              <li>Economic Times</li>
               <li>MensXp</li>
               <li>Filmfare</li>
+              <li>Economic Times</li>
               <li>iDiva</li>
               <li>TimesJobs</li>
               <li>India Times</li>
@@ -47,7 +48,7 @@ const Footer = () => {
             </ul>
 
             {/* Social Media Icons */}
-            <div className="social-icons mb-3  ">
+            <div className="social-icons mb-4  ">
               <a href="#" className="ms-2"><FaFacebookF size={20} /></a>
               <a href="#" className="ms-2"><FaTwitter size={20} /></a>
               <a href="#" className="ms-2"><FaLinkedinIn size={20} /></a>
@@ -66,12 +67,50 @@ const Footer = () => {
             <p style={{fontSize:'13px'}}>
               New Projects in New Delhi | New Projects in Mumbai | New Projects in Chennai | New Projects in Pune | New Projects in Noida | New Projects in Gurgaon | New Projects in Bangalore | New Projects in Ahmedabad
             </p>
+            
           </div>
+          
+          <div className="footer-links-container">
+      <div className="container">
+        <div className="row  policie">
+          <div className="col-auto policies">
+            <Link className="footer-link mx-2" to="/sitemap">Sitemap</Link>
+          </div>
+          <div className="col-auto">
+            <Link className="footer-link mx-2" to="/terms">Terms & Conditions</Link>
+          </div>
+          <div className="col-auto">
+            <Link className="footer-link mx-2" to="/privacy-policy">Privacy Policy</Link>
+          </div>
+          {/* <div className="col-auto">
+            <Link className="footer-link mx-2" to="/blog">Blog</Link>
+          </div> */}
+          {/* <div className="col-auto">
+            <Link className="footer-link mx-2" to="/careers">Careers</Link>
+          </div> */}
+          <div className="col-auto">
+            <Link className="footer-link mx-2" to="/testimonials">Testimonials</Link>
+          </div>
+          <div className="col-auto">
+            <Link className="footer-link mx-2" to="/unsubscribe">Unsubscribe</Link>
+          </div>
+          <div className="col-auto">
+            <Link className="footer-link mx-2" to="/help-center">Help Center</Link>
+          </div>
+          <div className="col-auto">
+            <Link className="footer-link mx-2" to="/sales-enquiry">Sales Enquiry</Link>
+          </div>
+          <div className="col-auto">
+            <Link className="footer-link mx-2" to="/buy-services">Buy Our Services</Link>
+          </div>
+        </div>
+      </div>
+    </div>
 
           <hr/>
           <div>
-            <p style={{fontSize:'12px', color:'grey'}}>
-              Disclaimer: Zwolf Realty Services Limited is only an intermediary offering its platform to advertise properties of Seller for a Customer/Buyer/User coming on its Website and is not and cannot be a party to or privy to or control in any manner any transactions between the Seller and the Customer/Buyer/User. All the offers and discounts on this Website have been extended by&nbsp;     
+            <p style={{fontSize:'12px', color:'grey', textAlign:"justify"}}>
+             <strong> Disclaimer:</strong> Zwolf Realty Services Limited is only an intermediary offering its platform to advertise properties of Seller for a Customer/Buyer/User coming on its Website and is not and cannot be a party to or privy to or control in any manner any transactions between the Seller and the Customer/Buyer/User. All the offers and discounts on this Website have been extended by&nbsp;     
               {isReadMoreDisclaimer ? (
                 <>
                    various Builder(s)/Developer(s) who have advertised their products. Zwolf is only communicating the offers and not selling or rendering any of those products or services. It neither warrants nor is it making any representations with respect to offer(s) made on the site. Zwolf Realty Services Limited shall neither be responsible nor liable to mediate or resolve any disputes or disagreements between the Customer/Buyer/User and the Seller and both Seller and Customer/Buyer/User shall settle all such disputes without involving Zwolf Realty Services Limited in any manner.
@@ -85,7 +124,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-black py-0">
-        <p className="text-center text-white " >
+        <p className="text-center text-white mb-0 " >
           &copy; 2024 Zwolf Realty. All rights reserved.
         </p>
       </div>

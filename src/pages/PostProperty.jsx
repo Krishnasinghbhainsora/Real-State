@@ -1567,7 +1567,7 @@ const PostProperty = () => {
  
   
   return (
-    <div className="container mt-5 ">
+    <div className="post-container mt-5 ">
       <Row>
         {/* Left Side - Form */}
         <Col xs={12} md={8} className="mb-4">
@@ -1826,25 +1826,28 @@ const PostProperty = () => {
 
             {/* Transaction Type, Property Availability */}
             <h6 className="mt-3 fw-bold">Transaction Type, Property Availability</h6>
-            <Form.Group controlId="possessionStatus">
-              <div className="mt-3">
-              <Form.Label className="me-3">Possession Status</Form.Label>
-                <Form.Check
-                  inline
-                  type="radio"
-                  label="Under Construction"
-                  name="possessionStatus"
-                  id="underConstruction"
-                />
-                <Form.Check
-                  inline
-                  type="radio"
-                  label="Ready to Move"
-                  name="possessionStatus"
-                  id="readyToMove"
-                />
-              </div>
-            </Form.Group>
+<Form.Group controlId="possessionStatus">
+  <div className="mt-3">
+    <Form.Label className="me-3">Possession Status:</Form.Label>
+    <div className="possession-options">
+      <Form.Check
+        inline
+        type="radio"
+        label="Under Construction"
+        name="possessionStatus"
+        id="underConstruction"
+      />
+      <Form.Check
+        inline
+        type="radio"
+        label="Ready to Move"
+        name="possessionStatus"
+        id="readyToMove"
+      />
+    </div>
+  </div>
+</Form.Group>
+
 
             <Form.Group controlId="availability">
               <Form.Label className="mt-2">Available From</Form.Label>

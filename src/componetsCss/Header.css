@@ -1,4 +1,3 @@
-
 * {
   padding: 0;
   margin: 0;
@@ -6,38 +5,102 @@
 }
 
 .header {
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* height: 55px; */
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    /* padding: 0 15px; */
-    /* max-height: 40px; */
-  }
-  
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* height: 55px; */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+  max-width: 2560px; 
+  margin: 0 auto;
+  padding: 0 10px; 
+  /* max-height: 40px; */
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #444;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* Responsive Styles */
+
+@media  (max-width: 550px) {
   .logo img {
-    height: 50px; 
+    width: 100px !important;
+    height: auto !important;
   }
-  
-  .nav {
-    display: flex;
-    gap: 15px;
-  }
-  
+
   .nav-link {
-    text-decoration: none;
-    color: #444;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500 !important;
+    padding: 5px !important;
+
+  }
+  .user-name{
+    font-size: 12px !important;
+  }
+
+  .nav {
+    gap: 0px;
+  }
+
+ 
+
+  .header-container {
+    align-items: center;
   }
   
-  .nav-link:hover {
-    color: #007bff;
+  .user-icon {
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+    margin-right: 5px !important;
   }
-  
+  .user-dropdwn {
+    top: 42px !important;
+    right: -25px !important;
+    width: 150px !important;
+    font-size: 10px !important;
+    z-index: 100;
+  }
+  .dropdwn-item {
+    font-size: 10px !important;
+  }
+  .dropdwn-arrow {
+    margin-left: 2px !important;
+    margin-right: 15px !important;
+    
+  }
+}
+
+@media (max-width:350px) {
+  .nav-link {
+    font-size: 10px !important ;
+    font-weight: 500 !important;
+    
+  }
+ 
+  .user-name{
+    font-size: 10px !important;
+  }
+
+}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import '../componetsCss/SignUp&Login.css';
-import 'react-phone-input-2/lib/style.css';
+import { Form, Button } from 'react-bootstrap';
+import { FaEye, FaEyeSlash, FaCheck } from 'react-icons/fa';
 import PhoneInput from 'react-phone-input-2';
 import { Link } from 'react-router-dom';
-
+import '../componetsCss/SignUp&Login.css';
+import 'react-phone-input-2/lib/style.css';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -16,12 +16,16 @@ const SignUp = () => {
     termsAccepted: false,
   });
   const [phone, setPhone] = useState('');
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const [isLeftContentVisible, setLeftContentVisible] = useState(true);
 
   const handlePhoneChange = (value) => {
     setPhone(value);
   };
 
-  const [isLeftContentVisible, setLeftContentVisible] = useState(true);
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!isPasswordVisible);
+  };
 
   const toggleLeftContent = () => {
     setLeftContentVisible(!isLeftContentVisible);
@@ -39,30 +43,27 @@ const SignUp = () => {
     e.preventDefault();
     const { userType, name, email, password, mobileNumber, termsAccepted } = formData;
 
-    // Basic form validation
     if (!userType || !name || !email || !password || !mobileNumber || !termsAccepted) {
       alert('Please fill in all fields and accept the terms and conditions.');
       return;
     }
 
     console.log(formData);
-    // You can add form submission logic here (e.g., API call)
   };
-  
 
   return (
     <div className="container-fluid signup-page">
       {/* Left Column - Information Section */}
       <div className={`info-section ${isLeftContentVisible ? '' : 'hidden'}`}>
-        <h3 className='pb-5 text-white'>Things you Can Do with Your Account</h3>
+        <h3 className="pb-5 text-white">Things you Can Do with Your Account</h3>
         <ul className="benefits-list p-3">
-          <li className='pb-3'>Post one Single Property for FREE</li>
-          <li className='pb-3'>Set property alerts for your requirement</li>
-          <li className='pb-3'>Get accessed by over 1 Lakh buyers</li>
-          <li className='pb-3'>Showcase your property as Rental, PG, or for Sale</li>
-          <li className='pb-3'>Get instant queries over Phone, Email, and SMS</li>
-          <li className='pb-3'>Track responses & views online</li>
-          <li className='pb-3'>Add detailed property information & multiple photos per listing</li>
+          <li className="pb-3"><FaCheck className="me-2" />Post one Single Property for FREE</li>
+          <li className="pb-3"><FaCheck className="me-2" />Set property alerts for your requirement</li>
+          <li className="pb-3"><FaCheck className="me-2" />Get accessed by over 1 Lakh buyers</li>
+          <li className="pb-3"><FaCheck className="me-2" />Showcase your property as Rental, PG, or for Sale</li>
+          <li className="pb-3"><FaCheck className="me-2" />Get instant queries over Phone, Email, and SMS</li>
+          <li className="pb-3"><FaCheck className="me-2" />Track responses & views online</li>
+          <li className="pb-3"><FaCheck className="me-2" />Add detailed property information & multiple photos per listing</li>
         </ul>
       </div>
 
@@ -74,8 +75,8 @@ const SignUp = () => {
       </div>
 
       {/* Right Column - Sign Up Form */}
-      <div className={`form-section ${isLeftContentVisible ? '' : 'centered'}`} style={{marginTop:'40px'}}>
-        <h3 className=' pt-3 '>Sign Up</h3>
+      <div className={`form-section ${isLeftContentVisible ? '' : 'centered'}`} style={{ marginTop: '40px' }}>
+        <h3 className="pt-3">Sign Up</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group>
             <Form.Label>I am</Form.Label>
@@ -127,41 +128,41 @@ const SignUp = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className='mb-2'
-              
-            />
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
               className="mb-2"
             />
           </Form.Group>
 
           <Form.Group>
-        <Form.Label>Mobile Number</Form.Label>
-        <PhoneInput
-        
-        className='mb-2'
-          country={'in'}  // default country
-          value={phone}
-          onChange={handlePhoneChange}
-          enableSearch={false} // Allow searching for country codes
-          inputProps={{
-            name: 'phone',
-            required: true,
-            autoFocus: true,
-        
-          }}
-          
-        />
-      </Form.Group>
+            <Form.Label>Password</Form.Label>
+            <div className="password-group">
+              <Form.Control
+                type={isPasswordVisible ? 'text' : 'password'}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                className="mb-2"
+              />
+              <span className="password-toggle-icon" onClick={togglePasswordVisibility}>
+                {isPasswordVisible ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Mobile Number</Form.Label>
+            <PhoneInput
+              country={'in'}
+              value={phone}
+              onChange={handlePhoneChange}
+              className="mb-2"
+              inputProps={{
+                name: 'phone',
+                required: true,
+                autoFocus: true,
+              }}
+            />
+          </Form.Group>
 
           <Form.Group>
             <Form.Check
@@ -174,12 +175,12 @@ const SignUp = () => {
             />
           </Form.Group>
 
-          <Button variant="danger " type="submit" block style={{width:'100%'}}>
+          <Button variant="danger" type="submit" block style={{ width: '100%' }}>
             Sign Up
           </Button>
         </Form>
         <div className="already-registered pt-3 text-center">
-          <p>Already registered? <Link to='/login'> Login Now</Link></p>
+          <p>Already registered? <a href="/login">Login Now</a></p>
         </div>
       </div>
     </div>
