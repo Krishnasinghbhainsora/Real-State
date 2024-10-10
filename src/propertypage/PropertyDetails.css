@@ -1,11 +1,11 @@
 .property-details-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 20px;
   margin: 20px;
   padding: 20px;
   background-color: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-family: 'poppins', sans-serif;
 }
@@ -68,17 +68,17 @@
 
 /*More details*/
 .more-details-container {
-  margin: auto;
   padding: 20px;
   background-color: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   font-family: 'poppins', sans-serif;
+
 }
 
 
 .more-details {
-  padding: 20px;
+  margin: 20px;
 }
 
 h3 {
@@ -91,15 +91,17 @@ h3 {
 .detail-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   margin-bottom: 15px;
   line-height: 1.5;
+  gap: 55px;
   color: #444;
 }
 
 .detail-item strong {
   font-weight: 600;
   color: #111;
+  
 }
 
 .description {
@@ -143,4 +145,61 @@ button.btn-danger:hover {
 .loan-details img {
   width: 40px;
   margin-left: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .property-details-container {
+    flex-direction: column; /* Stack items vertically */
+    margin: 0;
+    border-radius: 0;
+  }
+  .more-details-container{
+    margin-top: 20px;
+  }
+
+  .images-section,
+  .property-info {
+    width: 100%; /* Full width for both sections */
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns even on mobile */
+    gap: 8px;
+  }
+
+  .property-info {
+    margin-top: 20px; /* Add some spacing on mobile */
+  }
+  .more-details{
+    
+    margin: 0;
+  }
+
+  .property-image:first-child {
+    grid-column: span 2; /* Keep the first image spanning 2 columns */
+    grid-row: span 2; /* Keep the first image spanning 2 rows */
+    height: auto; /* Adjust height based on content */
+  }
+  .horizontal-line {
+    height: 1px; /* Height of horizontal line */
+    width: 100%; /* Full width */
+    background-color: #ccc; /* Color of the horizontal line */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns even on small screens */
+  }
+
+  .property-info {
+    margin-top: 20px;
+  }
+  .detail-item{
+    font-size: 12px;
+  }
+  .offer-badge{
+    font-size: 13px !important;
+  }
 }

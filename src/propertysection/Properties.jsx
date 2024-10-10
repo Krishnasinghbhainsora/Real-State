@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+
 import PropertyCard from '../propertysection/PropertyCard';
 import '../propertysection/PropertyCard.css';
 
@@ -12,7 +13,7 @@ const properties = [
         dimensions: '30x50 ft.',
         ownership: 'Freehold',
         price: '₹10 crore',
-        image: 'https://via.placeholder.com/600x400', // Dummy rectangle image
+        image: 'https://images.pexels.com/photos/5997992/pexels-photo-5997992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Dummy rectangle image
       },
       {
         id: 2,
@@ -22,7 +23,7 @@ const properties = [
         dimensions: '20x40 ft.',
         ownership: 'Leasehold',
         price: '₹8 crore',
-        image: 'https://via.placeholder.com/600x400', // Dummy rectangle image
+        image: 'https://images.pexels.com/photos/5997992/pexels-photo-5997992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Dummy rectangle image
       },
       {
         id: 3,
@@ -32,7 +33,7 @@ const properties = [
         dimensions: '50x20 ft.',
         ownership: 'Freehold',
         price: '₹15 crore',
-        image: 'https://via.placeholder.com/600x400', // Dummy rectangle image
+        image: 'https://images.pexels.com/photos/5997992/pexels-photo-5997992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Dummy rectangle image
       },
       {
         id: 4,
@@ -42,12 +43,13 @@ const properties = [
         dimensions: '40x30 ft.',
         ownership: 'Freehold',
         price: '₹12 crore',
-        image: 'https://via.placeholder.com/600x400', // Dummy rectangle image
+        image: 'https://images.pexels.com/photos/5997992/pexels-photo-5997992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Dummy rectangle image
       }
   // Add more property objects as needed
 ];
 
 const Properties = () => {
+  
   return (
     <Container fluid className="property-layout">
     <Row>

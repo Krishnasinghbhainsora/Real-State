@@ -63,7 +63,7 @@ const App = () => {
         <Route path="/pg/filters" element={<FiltersPG/>}/>
         <Route path="/commercial/filters" element={<FiltersCommercial/>}/>
         <Route path="/post-property" element={<PostProperty/>}/>
-        <Route path="/property-details" element={<PropertyDetails/>}/>
+        <Route path="/property-details/:id" element={<PropertyDetails/>}/>
         <Route path="/user-layout" element={<UserLayout/>}/>
         <Route path="/manage-property" element={<ManageProperties/>}/>
         <Route path="/request-property" element={<RequestProperty/>}/>

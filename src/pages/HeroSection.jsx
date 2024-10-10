@@ -22,21 +22,21 @@ const HeroSection = () => {
   ];
 
   const commercialProperties = [
-    { id: 5, title: "Commercial 1" },
-    { id: 6, title: "Commercial 2" },
-    { id: 7, title: "Commercial 3" },
-    { id: 8, title: "Commercial 4" },
+    { id: 5, title: "Commercial1" },
+    { id: 6, title: "Commercial2" },
+    { id: 7, title: "Commercial3" },
+    { id: 8, title: "Commercial4" },
   ];
 
   const otherProperties = [
-    { id: 9, title: "Other 1" },
-    { id: 10, title: "Other 2" },
-    { id: 11, title: "Other 3" },
-    { id: 12, title: "Other 4" },
+    { id: 9, title: "Other1" },
+    { id: 10, title: "Other2" },
+    { id: 11, title: "Other3" },
+    { id: 12, title: "Other4" },
   ];
 
 
-  const demoImageUrl = "https://via.placeholder.com/150x250";
+  const demoImageUrl = "https://images.pexels.com/photos/8134849/pexels-photo-8134849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
   const propertyDropdownRef = useRef(null);
   const budgetDropdownRef = useRef(null);
@@ -563,8 +563,8 @@ const HeroSection = () => {
           <h3>Residential Property:</h3>
           <div className="property-cards-row">
           {residentialProperties.map((property) => (
-              <Link to={`/properties/${property.id}`} key={property.id} className="property-card " style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Residential Property ${property.id}`} />
+              <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
+                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
                 <h6 className="text-center">{property.title}</h6>
               </Link>
             ))}
@@ -576,8 +576,8 @@ const HeroSection = () => {
           <h3>Commercial Property:</h3>
           <div className="property-cards-row">
           {commercialProperties.map((property) => (
-              <Link to={`/properties/${property.id}`} key={property.id} className="property-card" style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Commercial Property ${property.id}`} />
+              <Link to={`/properties/${property.title}`} key={property.title} className="property-card" style={{textDecoration:'none', color:'#000'}}>
+                <img src={demoImageUrl} alt={`Commercial Property ${property.title}`} />
                 <h6 className="text-center">{property.title}</h6>
               </Link>
             ))}
@@ -587,8 +587,8 @@ const HeroSection = () => {
           <h3>Others Property:</h3>
           <div className="property-cards-row">
           {otherProperties.map((property) => (
-              <Link to={`/properties/${property.id}`} key={property.id} className="property-card " style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Others Property ${property.id}`} />
+              <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
+                <img src={demoImageUrl} alt={`Others Property ${property.title}`} />
                 <h6 className="text-center">{property.title}</h6>
               </Link>
             ))}

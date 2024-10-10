@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { useNavigate } from 'react-router-dom'; 
 import { Card, Row, Col } from 'react-bootstrap';
+
 import '../propertysection/PropertyCard.css'
 const PropertyCard = ({ property = {} }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/property-details/${property.id}`); // Navigate to property details based on ID
+  };
 
   return (
-    <Card className="property-cards mb-4">
+    <Card className="property-cards mb-4" onClick={handleClick}>
     <Row className="no-gutters">
       <Col md={5}>
-        <Card.Img variant="top" src={property.image} className="property-image" />
+        <Card.Img variant="top" src={property.image} className="property-image"/>
       </Col>
       <Col md={7}>
         <Card.Body>

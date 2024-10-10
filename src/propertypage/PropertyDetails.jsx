@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+
+import {  Modal, Button, Form } from "react-bootstrap";
 import "../propertypage/PropertyDetails.css"; // Add your custom CSS for styling
 
 const PropertyDetails = () => {
@@ -112,6 +114,10 @@ const PropertyDetails = () => {
           )}
         </div>
       </div>
+      
+      
+    <div className="horizontal-line"></div>
+
 
       {/* Property Info Section */}
       <div className="property-info ">
@@ -137,6 +143,7 @@ const PropertyDetails = () => {
 
 
         </div>
+       
 
         {/* Contact Section */}
         <div className="property-contact">
@@ -150,6 +157,7 @@ const PropertyDetails = () => {
           </Button>
         </div>
       </div>
+        
       </div>
 
       {/* Modal for Signup */}
@@ -160,8 +168,11 @@ const PropertyDetails = () => {
         <Modal.Body>
           <p>Please sign up to access all images of this property.</p>
           <Button variant="primary" onClick={handleSignup}>
-            Sign Up
-          </Button>
+  <Link to="/signup" style={{ color: 'white', textDecoration: 'none' }}>
+    Sign Up
+  </Link>
+</Button>
+
         </Modal.Body>
       </Modal>
 
