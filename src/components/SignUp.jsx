@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import '../componetsCss/SignUp&Login.css';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 import { Link } from 'react-router-dom';
-
-
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { AccountContext } from '../Contexts/UserContext';
 const SignUp = () => {
+  // const [email, setemail] = useState('');
+  const [otp, setOtp] = useState('');
+  const [showOtpModel, setShowOtpModel] = useState(false);
+  const { login } = useContext(AccountContext)
+  // const [identifier, setIdentifier] = useState('');
+  const [password, setPassword] = useState('')
   const [formData, setFormData] = useState({
     userType: '',
     name: '',
@@ -15,11 +22,13 @@ const SignUp = () => {
     mobileNumber: '',
     termsAccepted: false,
   });
-  const [phone, setPhone] = useState('');
 
-  const handlePhoneChange = (value) => {
-    setPhone(value);
+  const handleOtpChange = (e) => {
+    setOtp(e.target.value);
   };
+
+
+
 
   const [isLeftContentVisible, setLeftContentVisible] = useState(true);
 
@@ -28,14 +37,22 @@ const SignUp = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, checked, type } = e.target;
+    const { name, value, mobileNumber, checked, type,
+    } = e.target;
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? checked : value,
     });
   };
+  const handlePhoneChange = (value) => {
+    setFormData({
+      ...formData,
+      mobileNumber: value, // Phone number value is directly passed
+    });
+  };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { userType, name, email, password, mobileNumber, termsAccepted } = formData;
 
@@ -44,11 +61,62 @@ const SignUp = () => {
       alert('Please fill in all fields and accept the terms and conditions.');
       return;
     }
-
     console.log(formData);
+    try {
+      await axios.post("http://localhost:8000/user/create", formData)
+        .then((response) => {
+          console.log(response.data);
+          // toast.success(response.data.message)
+          setShowOtpModel(true)
+        })
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message)
+    }
     // You can add form submission logic here (e.g., API call)
   };
-  
+
+  const handleOtpSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const otpResponse = await axios.post("http://localhost:8000/user/otp-verification", {
+        otp,
+        email: formData.email
+      });
+
+      toast.success(otpResponse.data.message);
+      setShowOtpModel(false);
+
+      // Proceed with login after OTP verification
+      try {
+        const loginres = await axios.post("http://localhost:8000/user/login", {
+          identifier: formData.email,
+          password: formData.password
+        });
+        const userdata = loginres.data
+        login(userdata)
+        console.log("Login response:", loginres);
+
+        // Clear form after successful login
+        setFormData({
+          userType: '',
+          name: '',
+          email: '',
+          password: '',
+          mobileNumber: '',
+          termsAccepted: false,
+        });
+      } catch (error) {
+        console.log(error);
+        toast.error(error.response?.data?.message || "An error occurred");
+
+      }
+
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response?.data?.message || "An error occurred");
+    }
+  };
 
   return (
     <div className="container-fluid signup-page">
@@ -74,7 +142,7 @@ const SignUp = () => {
       </div>
 
       {/* Right Column - Sign Up Form */}
-      <div className={`form-section ${isLeftContentVisible ? '' : 'centered'}`} style={{marginTop:'40px'}}>
+      <div className={`form-section ${isLeftContentVisible ? '' : 'centered'}`} style={{ marginTop: '40px' }}>
         <h3 className=' pt-3 '>Sign Up</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group>
@@ -128,7 +196,7 @@ const SignUp = () => {
               onChange={handleChange}
               placeholder="Enter your email"
               className='mb-2'
-              
+
             />
           </Form.Group>
 
@@ -145,23 +213,21 @@ const SignUp = () => {
           </Form.Group>
 
           <Form.Group>
-        <Form.Label>Mobile Number</Form.Label>
-        <PhoneInput
-        
-        className='mb-2'
-          country={'in'}  // default country
-          value={phone}
-          onChange={handlePhoneChange}
-          enableSearch={false} // Allow searching for country codes
-          inputProps={{
-            name: 'phone',
-            required: true,
-            autoFocus: true,
-        
-          }}
-          
-        />
-      </Form.Group>
+            <Form.Label>Mobile Number</Form.Label>
+            <PhoneInput
+              className='mb-2'
+              country={'in'} // default country
+              value={formData.mobileNumber}
+              onChange={handlePhoneChange} // Use handlePhoneChange here
+              enableSearch={false} // Disable search for country codes
+              inputProps={{
+                name: 'mobileNumber',
+                required: true,
+                autoFocus: true,
+              }}
+            />
+
+          </Form.Group>
 
           <Form.Group>
             <Form.Check
@@ -174,7 +240,7 @@ const SignUp = () => {
             />
           </Form.Group>
 
-          <Button variant="danger " type="submit" block style={{width:'100%'}}>
+          <Button variant="danger " type="submit" block style={{ width: '100%' }}>
             Sign Up
           </Button>
         </Form>
@@ -182,7 +248,29 @@ const SignUp = () => {
           <p>Already registered? <Link to='/login'> Login Now</Link></p>
         </div>
       </div>
+      <div className={`otp-model ${showOtpModel ? 'show' : ''}`}>
+        <div className="otp-model-container">
+          <h3 className="text-white">Verify Your E-mail</h3>
+          <Form onSubmit={handleOtpSubmit}>
+            <Form.Group>
+              <Form.Label>Enter OTP</Form.Label>
+              <Form.Control
+                type="text"
+                value={otp}
+                onChange={handleOtpChange}
+                placeholder="Enter OTP"
+                className="mb-2"
+              />
+            </Form.Group>
+            <Button variant="danger" type="submit" block>
+              Verify OTP
+            </Button>
+          </Form>
+        </div>
+      </div>
+      <ToastContainer />
     </div>
+
   );
 };
 

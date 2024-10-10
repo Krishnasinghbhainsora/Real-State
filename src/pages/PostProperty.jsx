@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Form,
   Row,
@@ -10,7 +10,9 @@ import {
 } from "react-bootstrap";
 import "../pagesCss/PostProperty.css";
 import axios from "axios";
+import { AccountContext } from "../Contexts/UserContext";
 import { ToastContainer, toast } from 'react-toastify';
+
 const PostProperty = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentCategory, setCurrentCategory] = useState("");
@@ -19,7 +21,8 @@ const PostProperty = () => {
   const [propertyType, setPropertyType] = useState("");
   const [photos, setPhotos] = useState([])
   const [urls, setUrls] = useState([]);
-  const [imageuploadbutton,setimagebutton]=useState(false)
+  const [imageuploadbutton, setimagebutton] = useState(false)
+  const { user } = useContext(AccountContext)
 
   const handleSelect = (key) => {
     setActiveTab(key);
@@ -52,6 +55,7 @@ const PostProperty = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
+      
       setUrls(res.data);
       setFormData((prevData) => ({ ...prevData, URL: res.data }));
       // alert("success")
@@ -64,11 +68,8 @@ const PostProperty = () => {
     }
   };
 
-  const handleDeleteImage = (category, index) => {
-    setPhotos((prevPhotos) => ({
-      ...prevPhotos,
-      [category]: prevPhotos[category].filter((_, i) => i !== index),
-    }));
+  const handleDeleteImage = (index) => {
+    setPhotos((prevPhotos) => prevPhotos.filter((_, index) => index !== index));
   };
   // Handle property type selection
   const handlePropertyTypeChange = (event) => {
@@ -76,6 +77,9 @@ const PostProperty = () => {
     const { value } = event.target;
     setFormData({ ...formData, propertyType: value });
   };
+  // Hook to programmatically navigate
+
+
 
   const badrooms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ">10"]
   const balconies = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ">10"];
@@ -84,9 +88,17 @@ const PostProperty = () => {
   const floors = ["Lower Basement", "Upper Basement", "Ground", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ">10"];
   const totalFloors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ">10"];
 
-
+  // const Name = user?.user?.name
+  // const E_mail = user?.user?.email
+  // const Phone =  user?.user?.mobileNumber
+  // const Type =  user?.user?.userType
+  // const ownerid = user?.user?._id
   const [formData, setFormData] = useState({
-
+    Name: user?.user?.name,
+    E_mail:user?.user?.email,
+    Phone: user?.user?.mobileNumber,
+    Type:user?.user?.userType,
+    ownerid: user?.user?.id,
     propertyType: "",
     for: "",
     bedrooms: "",
@@ -124,12 +136,13 @@ const PostProperty = () => {
 
 
   const handlesubmit = async () => {
-    if (urls.length < 5) {
-      toast.error('Please upload at least five images!');
-      return;
-    }
+    // if (urls.length < 5) {
+    //   toast.error('Please upload at least five images!');
+    //   return;
+    // }
     try {
-
+      
+      console.log("checking posting",formData);
       await axios.post('http://localhost:8000/property/create', formData);
       toast.success('Property created successfully!');
     } catch (error) {
@@ -1698,6 +1711,7 @@ const PostProperty = () => {
 
   return (
     <div className="container mt-5 ">
+      {/* {console.log("....checking user ",user.user)} */}
       <Row>
         {/* Left Side - Form */}
         <Col xs={12} md={8} className="mb-4">
@@ -1710,74 +1724,84 @@ const PostProperty = () => {
           <Form>
             {/* Personal Details */}
 
-            <h6 className="fw-bold">Personal Details</h6>
-            <Form.Group controlId="userType">
-              <Form.Label>I am</Form.Label>
-              <div>
-                <Form.Check
-                  inline
-                  type="radio"
-                  label="Owner"
-                  name="userType"
-                  id="owner"
-                  checked={userType === "owner"}
-                  onChange={() => setUserType("owner")}
-                />
-                <Form.Check
-                  inline
-                  type="radio"
-                  label="Agent"
-                  name="userType"
-                  id="agent"
-                  checked={userType === "agent"}
-                  onChange={() => setUserType("agent")}
-                />
-                <Form.Check
-                  inline
-                  type="radio"
-                  label="Builder"
-                  name="userType"
-                  id="builder"
-                  checked={userType === "builder"}
-                  onChange={() => setUserType("builder")}
-                />
-              </div>
-            </Form.Group>
 
-            {/* Conditionally render Name, Mobile, and Email fields for "Owner" */}
-            {userType === "owner" && (
+
+
+            {!user && (
               <>
-                <Form.Group controlId="name">
-                  <Form.Label className="mt-2">Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Your Name" />
-                </Form.Group>
+                {/* <h6 className="fw-bold">Personal Details</h6>
+                <Form.Group controlId="userType">
+                  <Form.Label>I am</Form.Label>
+                  <div>
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Owner"
+                      name="userType"
+                      id="owner"
+                      checked={userType === "owner"}
+                      onChange={() => setUserType("owner")}
+                    />
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Agent"
+                      name="userType"
+                      id="agent"
+                      checked={userType === "agent"}
+                      onChange={() => setUserType("agent")}
+                    />
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Builder"
+                      name="userType"
+                      id="builder"
+                      checked={userType === "builder"}
+                      onChange={() => setUserType("builder")}
+                    />
+                  </div>
+                </Form.Group> */}
 
-                <Form.Group controlId="mobile">
-                  <Form.Label className="mt-2">Mobile</Form.Label>
-                  <Row>
-                    <Col xs={3}>
-                      <Form.Control
-                        type="text"
-                        placeholder="IND +91"
-                        disabled
-                      />
-                    </Col>
-                    <Col xs={9}>
-                      <Form.Control type="text" placeholder="WhatsApp Number" />
-                    </Col>
-                  </Row>
-                </Form.Group>
-                <Button variant="warning" className=" w-100 mt-2" style={{ fontSize: '13px' }}>
-                  <i className="bi bi-whatsapp" ></i> Enter your WhatsApp No. to
-                  get enquiries from Buyer/Tenant
-                </Button>
+                {/* 
+                {userType === "owner" && (
+                  <>
+                    <Form.Group controlId="name">
+                      <Form.Label className="mt-2">Name</Form.Label>
+                      <Form.Control type="text" placeholder="Enter Your Name" />
+                    </Form.Group>
 
-                <Form.Group controlId="email">
-                  <Form.Label className="mt-2">Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter Your Email" />
-                </Form.Group>
+                    <Form.Group controlId="mobile">
+                      <Form.Label className="mt-2">Mobile</Form.Label>
+                      <Row>
+                        <Col xs={3}>
+                          <Form.Control type="text" placeholder="IND +91" disabled />
+                        </Col>
+                        <Col xs={9}>
+                          <Form.Control type="text" placeholder="WhatsApp Number" />
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                    <Button variant="warning" className="w-100 mt-2" style={{ fontSize: '13px' }}>
+                      <i className="bi bi-whatsapp"></i> Enter your WhatsApp No. to get enquiries from Buyer/Tenant
+                    </Button>
+
+                    <Form.Group controlId="email">
+                      <Form.Label className="mt-2">Email</Form.Label>
+                      <Form.Control type="email" placeholder="Enter Your Email" />
+                    </Form.Group>
+                  </>
+                  
+                )} */
+                  <h1>jatin</h1>
+                }
               </>
+
             )}
+
+
+
+
             {/* Property Details */}
             <h6 className="mt-3 fw-bold">Property Details</h6>
             <Form.Group controlId="for">
@@ -2149,10 +2173,10 @@ const PostProperty = () => {
 
                       ))}
                     </div>
-                      {imageuploadbutton&&(
-                        <button type="button" className="btn px-5 my-3 btn-outline-danger " onClick={handleUpload}>Upload</button>
-                        )
-                      }
+                    {imageuploadbutton && (
+                      <button type="button" className="btn px-5 my-3 btn-outline-danger " onClick={handleUpload}>Upload</button>
+                    )
+                    }
                   </div>
                 </Tab.Pane>
 

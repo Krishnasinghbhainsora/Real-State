@@ -139,7 +139,31 @@
   cursor: pointer;
 }
 
+.otp-model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  box-shadow: 5px 5px 100px 20px rgba(0, 0, 0,0.5);
+  display: none;
+}
 
+.otp-model.show {
+  display: block;
+}
+
+.otp-model-container {
+  background-color: rgb(204, 106, 106); /* Red background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.otp-model-container h3 {
+  color: #fff; /* White text */
+}
 
 /* Existing styles remain unchanged */
 

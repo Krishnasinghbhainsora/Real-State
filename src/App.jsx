@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; 
 import 'react-toastify/dist/ReactToastify.css';
 
-
+// import 'react-toastify/css/main.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HeroSection from './pages/HeroSection';
@@ -26,10 +26,11 @@ import PropertyDetails from './propertypage/PropertyDetails';
 import Footer from './components/Footer';
 import UserLayout from './components/UserLayout';
 import ManageProperties from './pages/ManageProperties';
-
+import { UserProvider } from './Contexts/UserContext'
 const App = () => {
   return (
     <>
+    <UserProvider>
       <Header />
       <Routes>
         <Route path='/' element={
@@ -40,9 +41,7 @@ const App = () => {
         }/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
-
         <Route path="/buy" element={<Buy/>} />
-
         <Route path="/rent" element={<RentPage />} />
         <Route path="/sell" element={<SellPage />} />
         <Route path="/pg" element={<Pg/>} />
@@ -58,16 +57,10 @@ const App = () => {
         <Route path="/property-details" element={<PropertyDetails/>}/>
         <Route path="/user-layout" element={<UserLayout/>}/>
         <Route path="/manage-property" element={<ManageProperties/>}/>
-
-
-
-        
-
-
       </Routes>
       <Footer/>
-
-     
+      </UserProvider>
+      
     </>
   );
 };
