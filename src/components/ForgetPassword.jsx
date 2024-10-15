@@ -10,7 +10,8 @@ const ForgetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordUpdated, setPasswordUpdated] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [otpError, setOtpError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [timer, setTimer] = useState(60);
   const [resendEnabled, setResendEnabled] = useState(false);
 
@@ -23,7 +24,6 @@ const ForgetPassword = () => {
       }, 1000);
     }
 
-    // Enable the resend button once the timer reaches 0
     if (timer === 0) {
       setResendEnabled(true);
       clearInterval(countdown);
@@ -38,37 +38,33 @@ const ForgetPassword = () => {
       setOtpSent(true);
       setShowOtpModal(true);
       setOtp('123456'); // Simulate sending OTP
-      setTimer(60); // Reset timer
-      setResendEnabled(false); // Disable resend initially
+      setTimer(60);
+      setResendEnabled(false);
     }
   };
 
   const handleResendOtp = () => {
     setOtp('123456'); // Simulate sending OTP again
-    setTimer(60); // Reset timer
-    setResendEnabled(false); // Disable resend again
+    setTimer(60);
+    setResendEnabled(false);
   };
 
   const handleVerifyOtp = () => {
-    if (otp === '123456') { // Assume correct OTP
+    if (otp === '123456') {
       setIsOtpVerified(true);
-      setErrorMessage('');
+      setOtpError('');
     } else {
-      setErrorMessage('Invalid OTP. Please try again.');
+      setOtpError('Invalid OTP. Please try again.');
     }
   };
 
   const handleUpdatePassword = () => {
-    if (!newPassword || !confirmPassword) {
-      setErrorMessage('Both password fields are required.');
-    } else if (newPassword.length < 6) {
-      setErrorMessage('Password must be at least 6 characters long.');
-    } else if (newPassword !== confirmPassword) {
-      setErrorMessage('Passwords do not match. Please try again.');
-    } else {
+    if (newPassword && confirmPassword && newPassword === confirmPassword) {
       setPasswordUpdated(true);
       setShowOtpModal(false);
-      setErrorMessage('');
+      setPasswordError('');
+    } else {
+      setPasswordError('Passwords do not match. Please try again.');
     }
   };
 
@@ -78,7 +74,8 @@ const ForgetPassword = () => {
     setIsOtpVerified(false);
     setNewPassword('');
     setConfirmPassword('');
-    setErrorMessage('');
+    setOtpError('');
+    setPasswordError('');
     setShowOtpModal(false);
   };
 
@@ -144,12 +141,6 @@ const ForgetPassword = () => {
             Your password has been updated successfully!
           </Alert>
         )}
-
-        {errorMessage && (
-          <Alert variant="danger" className="mt-3">
-            {errorMessage}
-          </Alert>
-        )}
       </div>
 
       <Modal show={showOtpModal} onHide={restartProcess}>
@@ -167,20 +158,22 @@ const ForgetPassword = () => {
                   value={otp}
                   onChange={(e) => setOtp(e.target.value)}
                 />
+                {otpError && (
+                  <Alert variant="danger" className="mt-2">
+                    {otpError}
+                  </Alert>
+                )}
               </Form.Group>
 
               <div className="d-flex justify-content-between align-items-center mt-2">
-                <Button
-                  variant="danger"
-                  onClick={handleVerifyOtp}
-                >
+                <Button variant="danger" onClick={handleVerifyOtp}>
                   Verify OTP
                 </Button>
                 <Button
                   variant="link"
                   onClick={handleResendOtp}
                   disabled={!resendEnabled}
-                  className='text-decoration-none'
+                  className="text-decoration-none"
                 >
                   {resendEnabled ? 'Resend OTP' : `Resend in ${timer}s`}
                 </Button>
@@ -205,6 +198,11 @@ const ForgetPassword = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
+                {passwordError && (
+                  <Alert variant="danger" className="mt-2">
+                    {passwordError}
+                  </Alert>
+                )}
               </Form.Group>
               <Button
                 variant="success"
