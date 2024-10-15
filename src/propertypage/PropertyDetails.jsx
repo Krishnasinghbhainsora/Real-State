@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
-import {  Modal, Button, Form } from "react-bootstrap";
+import {  Modal, Button, Form, Carousel } from "react-bootstrap";
 import "../propertypage/PropertyDetails.css"; // Add your custom CSS for styling
 
 const PropertyDetails = () => {
   // Simulate property data with dummy images
   const propertyData = {
     images: [
-      "https://via.placeholder.com/150", // Dummy image 1
-      "https://via.placeholder.com/150", // Dummy image 2
-      "https://via.placeholder.com/150", // Dummy image 3
-      "https://via.placeholder.com/150", // Dummy image 4
-      "https://via.placeholder.com/150", // Dummy image 5
-      "https://via.placeholder.com/150", // Dummy image 6
+      "https://images.pexels.com/photos/5997994/pexels-photo-5997994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Dummy image 1
+      "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Dummy image 2
+      "https://images.pexels.com/photos/36355/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Dummy image 3
+      "https://images.pexels.com/photos/297984/pexels-photo-297984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Dummy image 4
+      "https://images.pexels.com/photos/28793624/pexels-photo-28793624/free-photo-of-unique-modern-house-with-artistic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Dummy image 5
+      "https://images.pexels.com/photos/16501697/pexels-photo-16501697/free-photo-of-mansion-with-a-garden.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Dummy image 6
       "https://via.placeholder.com/150", // Dummy image 7
       "https://via.placeholder.com/150", // Dummy image 8
       "https://via.placeholder.com/150", // Dummy image 9
@@ -53,14 +53,15 @@ const PropertyDetails = () => {
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false); // State to manage form modal
   const [phoneNumberVisible, setPhoneNumberVisible] = useState(false);
+  
+  const [showImageModal, setShowImageModal] = useState(false); // State to manage image modal
 
   const handleShowImages = () => {
-    setShowSignupModal(true); // Prompt user to sign up to view full image gallery
+    setShowImageModal(true); // Show the modal with images on click
   };
 
-  const handleSignup = () => {
-    setShowSignupModal(false);
-    // After signup logic, allow full image gallery viewing
+  const handleCloseImages = () => {
+    setShowImageModal(false); // Close the modal
   };
 
   const handleContactOwner = () => {
@@ -90,30 +91,66 @@ const PropertyDetails = () => {
     setShowFormModal(false); // Close form after submission
   };
 
+  
+
   return (
     <div >
         <div className="property-details-container">
       {/* Image Section */}
-      <div className="images-section">
-        <div className="image-grid">
-          {/* Display first 4 images */}
-          {propertyData.images.slice(0, 5).map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Image ${index + 1}`}
-              className="property-image"
-            />
-          ))}
+     <div className="images-section">
+          <div className="image-grid">
+            {/* Display first 5 images */}
+            {propertyData.images.slice(0, 5).map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Image ${index + 1}`}
+                className="property-image"
+              />
+            ))}
 
-          {/* Display "+X Images" if more than 4 images */}
-          {propertyData.images.length > 4 && (
-            <div className="more-images" onClick={handleShowImages}>
-              <span>{`+${propertyData.images.length - 4} Images`}</span>
-            </div>
-          )}
+            {/* Display "+X Images" overlay on the 6th image */}
+            {propertyData.images.length > 5 && (
+              <div
+                className="more-images-overlay"
+                style={{
+                  backgroundImage: `url(${propertyData.images[5]})`,
+                }}
+                onClick={handleShowImages}
+              >
+                <div className="overlay-text">
+                  <span>{`+${propertyData.images.length - 5} Images`}</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+
+        {/* Modal for full image preview */}
+        <Modal show={showImageModal} onHide={handleCloseImages} size="lg" centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Image Gallery</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {/* Carousel for images */}
+            <Carousel interval={5000}>
+              {propertyData.images.map((image, index) => (
+                <Carousel.Item key={index}>
+                  <img
+                    className="d-block w-100"
+                    src={image}
+                    alt={`Slide ${index + 1}`}
+                  />
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseImages}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       
       
     <div className="horizontal-line"></div>
@@ -160,7 +197,7 @@ const PropertyDetails = () => {
         
       </div>
 
-      {/* Modal for Signup */}
+      {/* Modal for Signup
       <Modal show={showSignupModal} onHide={() => setShowSignupModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Sign Up to View All Images</Modal.Title>
@@ -174,7 +211,7 @@ const PropertyDetails = () => {
 </Button>
 
         </Modal.Body>
-      </Modal>
+      </Modal> */}
 
       {/* Modal for Form */}
       <Modal show={showFormModal} onHide={() => setShowFormModal(false)}>
@@ -192,8 +229,8 @@ const PropertyDetails = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email</Form.Label>
+            <Form.Group controlId="formEmail" >
+              <Form.Label >Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter your email"

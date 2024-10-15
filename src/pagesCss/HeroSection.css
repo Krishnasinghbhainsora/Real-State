@@ -215,6 +215,65 @@
   transform: translateY(-5px);
 }
 
+/*-- PropSection Component --*/
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 100%;
+}
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Dark Overlay Layer */
+/* .overlays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); 
+  transition: background-color 0.3s ease-in-out;
+  z-index: 1;
+} */
+
+/* Text inside the overlay */
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hover Effects */
+.image-container:hover .overlays {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.image-container:hover .property-image {
+  filter: brightness(0.7); /* Dim the image on hover */
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+.image-container:hover .hover-text {
+  opacity: 1; /* Show the text on hover */
+}
+
+
 
   /* Responsive adjustments */
   @media (max-width: 768px) {

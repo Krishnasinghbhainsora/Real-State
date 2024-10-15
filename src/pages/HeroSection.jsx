@@ -14,29 +14,6 @@ const HeroSection = () => {
   const [submenuHeight, setSubmenuHeight] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const residentialProperties = [
-    { id: 1, title: "Flat" },
-    { id: 2, title: "Villa" },
-    { id: 3, title: "Plot" },
-    { id: 4, title: "Property 4" },
-  ];
-
-  const commercialProperties = [
-    { id: 5, title: "Commercial1" },
-    { id: 6, title: "Commercial2" },
-    { id: 7, title: "Commercial3" },
-    { id: 8, title: "Commercial4" },
-  ];
-
-  const otherProperties = [
-    { id: 9, title: "Other1" },
-    { id: 10, title: "Other2" },
-    { id: 11, title: "Other3" },
-    { id: 12, title: "Other4" },
-  ];
-
-
-  const demoImageUrl = "https://images.pexels.com/photos/8134849/pexels-photo-8134849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
   const propertyDropdownRef = useRef(null);
   const budgetDropdownRef = useRef(null);
@@ -557,44 +534,9 @@ const HeroSection = () => {
           </Form>
         </div>
       </div>
-      <div className="mt-4" style={{ margin: "20px" }}>
-        {/* Residential Properties */}
-        <div className="residential-section">
-          <h3>Residential Property:</h3>
-          <div className="property-cards-row">
-          {residentialProperties.map((property) => (
-              <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
-                <h6 className="text-center">{property.title}</h6>
-              </Link>
-            ))}
-          </div>
-        </div>
+    
 
-        {/* Commercial Properties */}
-        <div className="commercial-section mt-5">
-          <h3>Commercial Property:</h3>
-          <div className="property-cards-row">
-          {commercialProperties.map((property) => (
-              <Link to={`/properties/${property.title}`} key={property.title} className="property-card" style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Commercial Property ${property.title}`} />
-                <h6 className="text-center">{property.title}</h6>
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="others-section mt-5">
-          <h3>Others Property:</h3>
-          <div className="property-cards-row">
-          {otherProperties.map((property) => (
-              <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Others Property ${property.title}`} />
-                <h6 className="text-center">{property.title}</h6>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+
     </section>
   );
 };

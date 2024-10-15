@@ -126,10 +126,12 @@ const Login = () => {
               </span>
             </div>
 
-            <Button variant="danger" type="submit" block style={{ width: '100%' }}>
+            <Button variant="danger" className='mt-0' type="submit" block style={{ width: '100%' }}>
               Login
             </Button>
           </Form>
+         
+          <Link className='text-dark mt-2' to="/forget-password">Forget Password?</Link>
 
           <div className="text-center pt-3">
             <small>Or login using</small>

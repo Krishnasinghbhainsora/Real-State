@@ -34,6 +34,46 @@ const Buy = () => {
     { title: 'Others4' }
     
   ]);
+  const getResidentialHoverText = (title) => {
+    switch (title) {
+      case "Property1":
+        return "View More Property1";
+      case "Property2":
+        return "View All Property2";
+      case "Property3":
+        return "View All Property3";
+      default:
+        return "View More Newest";
+    }
+  };
+  
+  // Hover text logic for Commercial Properties
+  const getCommercialHoverText = (title) => {
+    switch (title) {
+      case "Commercial1":
+        return "Explore Commercial1";
+      case "Commercial2":
+        return "Explore Commercial2";
+      case "Commercial3":
+        return "Explore Commercial3";
+      default:
+        return "View More Commercial Properties";
+    }
+  };
+  
+  // Hover text logic for Other Properties
+  const getOtherHoverText = (title) => {
+    switch (title) {
+      case "Other1":
+        return "Explore Other1";
+      case "Other2":
+        return "Explore Other2";
+      case "Other3":
+        return "Explore Other3";
+      default:
+        return "View More Other Properties";
+    }
+  };
 
   const demoImageUrl = 'https://via.placeholder.com/150x250';
 
@@ -286,7 +326,15 @@ const Buy = () => {
         <div className="property-cards-row">
           {residentialProperties.map((property)=> (
               <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
+                <div className="image-container">
+            <img
+              src={demoImageUrl}
+              alt={`Residential Property ${property.title}`}
+              className="property-image"
+            />
+            <div className="overlays"></div>
+            <div className="hover-text">{getResidentialHoverText(property.title)}</div>
+          </div>
                 <h6 className="text-center">{property.title}</h6>
               </Link>
           ))}
@@ -299,7 +347,15 @@ const Buy = () => {
         <div className="property-cards-row">
           {commercialProperties.map((property)=> (
               <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
+                <div className="image-container">
+            <img
+              src={demoImageUrl}
+              alt={`Commercial Property ${property.title}`}
+              className="property-image"
+            />
+            <div className="overlays"></div>
+            <div className="hover-text">{getCommercialHoverText(property.title)}</div>
+          </div>
                 <h6 className="text-center">{property.title}</h6>
               </Link>
           ))}
@@ -310,7 +366,15 @@ const Buy = () => {
         <div className="property-cards-row">
           {otherProperties.map((property)=> (
               <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
-                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
+                 <div className="image-container">
+            <img
+              src={demoImageUrl}
+              alt={`Others Property ${property.title}`}
+              className="property-image"
+            />
+            <div className="overlays"></div>
+            <div className="hover-text">{getOtherHoverText(property.title)}</div>
+          </div>
                 <h6 className="text-center">{property.title}</h6>
               </Link>
           ))}

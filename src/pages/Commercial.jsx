@@ -13,25 +13,25 @@ const Commercial= () => {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [submenuHeight, setSubmenuHeight] = useState(0);
   const [residentialProperties, setResidentialProperties] = useState([
-    { title: 'Property 1' },
-    { title: 'Property 2' },
-    { title: 'Property 3' },
-    { title: 'Property 4' }
+    { title: 'Property1' },
+    { title: 'Property2' },
+    { title: 'Property3' },
+    { title: 'Property4' }
     
   ]);
 
   const [commercialProperties, setCommercialProperties] = useState([
-    { title: 'Rent 1' },
-    { title: 'Rent 2' },
-    { title: 'Rent 3' },
-    { title: 'Rent 4' }
+    { title: 'Commericial1' },
+    { title: 'Commericial2' },
+    { title: 'Commericial3' },
+    { title: 'Commericial4' }
     
   ]);
   const [otherProperties, setOtherProperties] = useState([
-    { title: 'Other 1' },
-    { title: 'Other 2' },
-    { title: 'Other 3' },
-    { title: 'Other 4' }
+    { title: 'Other1' },
+    { title: 'Other2' },
+    { title: 'Other3' },
+    { title: 'Other4' }
     
   ]);
 
@@ -200,39 +200,39 @@ const Commercial= () => {
       <div className="residential-section">
         <h3>Newest property:</h3>
         <div className="property-cards-row">
-          {residentialProperties.map((property, index) => (
-            <div className="property-card" key={index}>
-              <img src={demoImageUrl} alt={`Residential Property ${index + 1}`} />
-              <h6 className='text-center'>{property.title}</h6>
-            </div>
+          {residentialProperties.map((property)=> (
+              <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
+                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
+                <h6 className="text-center">{property.title}</h6>
+              </Link>
           ))}
         </div>
       </div>
 
       {/* Commercial Properties */}
       <div className="commercial-section mt-5">
-        <h3>Rental with commercial specials:</h3>
+        <h3>Buy properties:</h3>
         <div className="property-cards-row">
-          {commercialProperties.map((property, index) => (
-            <div className="property-card" key={index}>
-              <img src={demoImageUrl} alt={`Commercial Property ${index + 1}`} />
-              <h6 className='text-center'>{property.title}</h6>
-            </div>
+          {commercialProperties.map((property)=> (
+              <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
+                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
+                <h6 className="text-center">{property.title}</h6>
+              </Link>
           ))}
         </div>
       </div>
       <div className="others-section mt-5">
-        <h3>Commercial Properties for rent:</h3>
+        <h3>Buy Single family properties :</h3>
         <div className="property-cards-row">
-          {otherProperties.map((property, index) => (
-            <div className="property-card" key={index}>
-              <img src={demoImageUrl} alt={`Others Property ${index + 1}`} />
-              <h6 className='text-center'>{property.title}</h6>
-            </div>
+          {otherProperties.map((property)=> (
+              <Link to={`/properties/${property.title}`} key={property.title} className="property-card " style={{textDecoration:'none', color:'#000'}}>
+                <img src={demoImageUrl} alt={`Residential Property ${property.title}`} />
+                <h6 className="text-center">{property.title}</h6>
+              </Link>
           ))}
         </div>
       </div>
-    </div> 
+    </div>  
     </section>
   );
 };

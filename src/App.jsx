@@ -30,6 +30,8 @@ import MyProfile from './components/MyProfile';
 import PropertyCard from './propertysection/PropertyCard';
 import Properties from './propertysection/Properties';
 import ScrollToTop from './components/ScrollToTop';
+import ForgetPassword from './components/ForgetPassword';
+import PropSection from './pages/PropSection';
 
 const App = () => {
   return (
@@ -40,12 +42,14 @@ const App = () => {
         <Route path='/' element={
           <>
             <HeroSection />
+            <PropSection/>
 
             {/* <Filters/> */}
           </>
         }/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/forget-password' element={<ForgetPassword/>}/>
 
         <Route path="/buy" element={<Buy/>} />
 
